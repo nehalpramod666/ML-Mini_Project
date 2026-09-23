@@ -16,5 +16,23 @@ A single string: plain-language clinical instruction.
 - Gives a concrete corrective action for retake (not generic "please retake")
 - No hedging language ("might be", "possibly") — the fuzzy engine already made the decision
 
-## Training format (Unsloth instruction-tuning, decided now to avoid rework later)
-{"instruction": "<system-style task description>", "input": "<metrics JSON as string>", "output": "<clinical instruction>"}
+## Training format (Unsloth / Llama 3.2 conversational format)
+
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "<system-style task description>"
+    },
+    {
+      "role": "user",
+      "content": "<metrics JSON as string>"
+    },
+    {
+      "role": "assistant",
+      "content": "<clinical instruction>"
+    }
+  ]
+}
+
+> Note: `contrast` is treated as bidirectional in the synthetic dataset (lower and higher values represent different defect directions, with an optimal mid-range); `blur` and `noise` are unidirectional, where higher values indicate greater degradation. This synthetic convention must be confirmed against M2's real metric/fuzzy implementation.
