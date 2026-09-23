@@ -6,41 +6,43 @@ import pytest
 from cv_fuzzy.dicom_loader import DicomLoadError, load_dicom
 
 
-SAMPLE_DIR = Path(__file__).parent / "sample_data"
+SAMPLE_FILE = (
+    Path("cv_fuzzy/tests/sample_data/CT_small.dcm").resolve().parent.parent
+    / "sample_data"
+    / "CT_small.dcm"
+)
 
 
-def get_sample_dicom():
-    files = list(SAMPLE_DIR.glob("*.dcm"))
+def test_load_returns_nonempty_uint8_array():
+    """Loader should return a non-empty uint8 NumPy array."""
+    arr = load_dicom(str(SAMPLE_FILE))
 
-    if not files:
-        pytest.fail("No sample DICOM files found in sample_data/")
-
-    return files[0]
-
-
-def test_load_dicom_returns_ndarray():
-    image = load_dicom(str(get_sample_dicom()))
-
-    assert isinstance(image, np.ndarray)
-    assert image.dtype == np.uint8
+    assert isinstance(arr, np.ndarray)
+    assert arr.size > 0
+    assert arr.dtype == np.uint8
 
 
-def test_load_dicom_nonempty_shape():
-    image = load_dicom(str(get_sample_dicom()))
+def test_load_returns_2d_array():
+    """Loader should return a 2D grayscale image."""
+    arr = load_dicom(str(SAMPLE_FILE))
 
-    assert image.ndim >= 2
-    assert all(size > 0 for size in image.shape)
-
-
-def test_load_dicom_value_range():
-    image = load_dicom(str(get_sample_dicom()))
-
-    assert image.min() >= 0
-    assert image.max() <= 255
+    assert arr.ndim == 2
+    assert all(size > 0 for size in arr.shape)
 
 
-def test_load_dicom_missing_file_raises():
-    missing_file = SAMPLE_DIR / "does_not_exist.dcm"
+def test_load_value_range_not_degenerate():
+    """Normalized image should have a meaningful pixel range."""
+    arr = load_dicom(str(SAMPLE_FILE))
+
+    assert arr.min() >= 0
+    assert arr.max() <= 255
+    assert arr.max() > arr.min()
+
+
+def test_load_raises_on_corrupt_file(tmp_path):
+    """Loader should raise DicomLoadError for invalid DICOM data."""
+    bad_file = tmp_path / "corrupt.dcm"
+    bad_file.write_bytes(b"not a real dicom")
 
     with pytest.raises(DicomLoadError):
-        load_dicom(str(missing_file))
+        load_dicom(str(bad_file))
