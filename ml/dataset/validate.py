@@ -152,7 +152,7 @@ def validate_dataset(path: str, expected_rows: int = 500) -> None:
                         )
 
                 elif state == "BORDERLINE":
-                    if not 40 <= metrics["blur"] <= 65:
+                    if not 40 <= metrics["blur"] <= 64:
                         bad.append(
                             (
                                 line_number,
@@ -178,7 +178,7 @@ def validate_dataset(path: str, expected_rows: int = 500) -> None:
                         )
 
                 elif state == "BORDERLINE":
-                    if not 35 <= metrics["contrast"] <= 50:
+                    if not 35 <= metrics["contrast"] <= 49:
                         bad.append(
                             (
                                 line_number,
@@ -204,7 +204,7 @@ def validate_dataset(path: str, expected_rows: int = 500) -> None:
                         )
 
                 elif state == "BORDERLINE":
-                    if not 60 <= metrics["contrast"] <= 70:
+                    if not 60 <= metrics["contrast"] <= 64:
                         bad.append(
                             (
                                 line_number,
@@ -230,7 +230,7 @@ def validate_dataset(path: str, expected_rows: int = 500) -> None:
                         )
 
                 elif state == "BORDERLINE":
-                    if not 40 <= metrics["noise"] <= 65:
+                    if not 40 <= metrics["noise"] <= 64:
                         bad.append(
                             (
                                 line_number,
@@ -278,6 +278,6 @@ def validate_dataset(path: str, expected_rows: int = 500) -> None:
 
 if __name__ == "__main__":
     validate_dataset(
-        "ml/dataset/train_500.jsonl",
-        expected_rows=500,
+        "ml/dataset/train_5000_raw.jsonl",
+        expected_rows=5000,
     )

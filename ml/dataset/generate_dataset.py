@@ -278,8 +278,6 @@ def main(n_rows: int, out_path: str):
     )
 
 
+# ml/dataset/generate_dataset.py — change only the __main__ block
 if __name__ == "__main__":
-    main(
-        n_rows=500,
-        out_path="ml/dataset/train_500.jsonl",
-    )
+    main(n_rows=5000, out_path="ml/dataset/train_5000_raw.jsonl")
