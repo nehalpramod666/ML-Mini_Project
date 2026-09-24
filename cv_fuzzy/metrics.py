@@ -22,3 +22,23 @@ def compute_blur(img: np.ndarray) -> float:
 
     laplacian = cv2.Laplacian(img, cv2.CV_64F)
     return float(laplacian.var())
+def compute_contrast(img: np.ndarray) -> float:
+    """
+    Compute contrast via RMS (standard deviation) of pixel intensities.
+
+    Higher values = more contrast/spread.
+    Lower values = flat/washed-out image.
+
+    Args:
+        img: 2D uint8 grayscale array.
+
+    Returns:
+        float RMS deviation of pixel intensities.
+    """
+    if img.ndim != 2:
+        raise ValueError(
+            f"compute_contrast expects a 2D grayscale array, "
+            f"got shape {img.shape}"
+        )
+
+    return float(np.std(img.astype(np.float64)))
