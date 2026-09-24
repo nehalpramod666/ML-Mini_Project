@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import pytest
 
-from cv_fuzzy.metrics import compute_blur, compute_contrast
+from cv_fuzzy.metrics import compute_blur, compute_contrast, compute_noise
 
 def _make_sharp_image() -> np.ndarray:
     """A checkerboard pattern has strong, sharp edges."""
@@ -92,4 +92,57 @@ def test_contrast_score_on_real_sample_dicom():
     img = load_dicom(str(sample))
     score = compute_contrast(img)
 
+    assert score >= 0
+def test_noise_score_is_float():
+    img = np.random.randint(80, 180, (100, 100), dtype=np.uint8)
+    score = compute_noise(img)
+
+    assert isinstance(score, float)
+
+
+def test_flat_image_has_infinite_snr():
+    flat = np.full((100, 100), 128, dtype=np.uint8)
+
+    assert compute_noise(flat) == float("inf")
+
+
+def test_noisier_image_has_lower_snr():
+    clean = np.full((100, 100), 128, dtype=np.uint8)
+
+    # Small variation around 128.
+    low_noise = np.tile(
+        np.array([126, 127, 128, 129, 130], dtype=np.uint8),
+        (100, 20),
+    )
+
+    # Larger variation around the same approximate signal level.
+    high_noise = np.tile(
+        np.array([80, 100, 128, 156, 176], dtype=np.uint8),
+        (100, 20),
+    )
+
+    assert compute_noise(low_noise) > compute_noise(high_noise)
+
+
+def test_noise_raises_on_non_2d_input():
+    bad = np.zeros((100, 100, 3), dtype=np.uint8)
+
+    with pytest.raises(ValueError):
+        compute_noise(bad)
+
+
+def test_noise_score_on_real_sample_dicom():
+    from pathlib import Path
+    from cv_fuzzy.dicom_loader import load_dicom
+
+    sample = (
+        Path(__file__).resolve().parent
+        / "sample_data"
+        / "CT_small.dcm"
+    )
+
+    img = load_dicom(str(sample))
+    score = compute_noise(img)
+
+    assert isinstance(score, float)
     assert score >= 0
