@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import pytest
 
-from cv_fuzzy.metrics import compute_blur, compute_contrast, compute_noise
+from cv_fuzzy.metrics import compute_blur, compute_contrast, compute_noise , analyze_image
 
 def _make_sharp_image() -> np.ndarray:
     """A checkerboard pattern has strong, sharp edges."""
@@ -146,3 +146,14 @@ def test_noise_score_on_real_sample_dicom():
 
     assert isinstance(score, float)
     assert score >= 0
+def test_analyze_image_returns_expected_structure():
+    img = np.zeros((64, 64), dtype=np.uint8)
+
+    result = analyze_image(img)
+
+    assert set(result.keys()) == {"metrics"}
+    assert set(result["metrics"].keys()) == {
+        "blur",
+        "contrast",
+        "noise",
+    }

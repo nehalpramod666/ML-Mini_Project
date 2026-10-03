@@ -76,3 +76,11 @@ def compute_noise(img: np.ndarray) -> float:
         return float("inf")
 
     return float(mean_value / std_value)
+def analyze_image(img) -> dict:
+    return {
+        "metrics": {
+            "blur": compute_blur(img),
+            "contrast": compute_contrast(img),
+            "noise": compute_noise(img),
+        }
+    }
