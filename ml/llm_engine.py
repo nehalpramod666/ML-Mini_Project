@@ -1,6 +1,7 @@
 import json
 import os
 from pathlib import Path
+from typing import Iterator
 
 # Project root
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -82,6 +83,45 @@ def generate_report(metrics_json: dict) -> str:
 
     return output["choices"][0]["text"].strip()
 
+def generate_report_stream(metrics_json: dict) -> Iterator[str]:
+    """
+    Streaming version of generate_report().
+    Yields text chunks as they are produced by the local LLM.
+    """
+
+    system_prompt = (
+        "You are a clinical imaging quality assistant. "
+        "You receive deterministic DICOM image-quality metrics. "
+        "Explain the dominant image-quality defect and give a concise, "
+        "actionable retake instruction. "
+        "Do not invent patient details, image numbers, body parts, "
+        "measurements, or clinical findings. "
+        "Use only the information provided. "
+        "Do not describe the image as if you can see it."
+    )
+
+    prompt = (
+        "<|start_header_id|>system<|end_header_id|>\n"
+        f"{system_prompt}"
+        "<|eot_id|>"
+        "<|start_header_id|>user<|end_header_id|>\n"
+        f"{json.dumps(metrics_json)}"
+        "<|eot_id|>"
+        "<|start_header_id|>assistant<|end_header_id|>\n"
+    )
+
+    stream = llm(
+        prompt,
+        max_tokens=100,
+        temperature=0.0,
+        stop=["<|eot_id|>"],
+        stream=True,
+    )
+
+    for chunk in stream:
+        token_text = chunk["choices"][0]["text"]
+        if token_text:
+            yield token_text
 
 if __name__ == "__main__":
     test_metrics = {
@@ -92,5 +132,18 @@ if __name__ == "__main__":
         "dominant_defect": "motion_blur",
     }
 
-    print("=== MODEL OUTPUT ===")
-    print(generate_report(test_metrics))
+    print("--- Blocking ---")
+    blocking_output = generate_report(test_metrics)
+    print(blocking_output)
+
+    print("\n--- Streaming ---")
+    streamed_output = ""
+
+    for token in generate_report_stream(test_metrics):
+        print(token, end="", flush=True)
+        streamed_output += token
+
+    print("\n")
+
+    print("--- Concatenated streaming output ---")
+    print(streamed_output)
