@@ -10,3 +10,6 @@ backend/temp_uploads/
 
 
 cv_fuzzy/gold_standard/
+
+# Local GGUF model files
+models/*.gguf
