@@ -34,7 +34,7 @@ MODEL_PATH = PROJECT_ROOT / "models" / "clinical-gatekeeper-Q4_K_M.gguf"
 
 llm = Llama(
     model_path=str(MODEL_PATH),
-    n_ctx=2048,
+    n_ctx=1024,
     n_gpu_layers=-1,
     verbose=False,
 )
