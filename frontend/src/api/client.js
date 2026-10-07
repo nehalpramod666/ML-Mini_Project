@@ -21,3 +21,15 @@ export async function uploadFile(file) {
 
   return res.json();
 }
+export async function analyzeFile(fileId) {
+  const res = await fetch(`${BASE_URL}/analyze/${fileId}`, {
+    method: "POST",
+  });
+
+  if (!res.ok) {
+    const errorData = await res.json().catch(() => ({}));
+    throw new Error(errorData.detail || "Analysis failed");
+  }
+
+  return res.json();
+}
