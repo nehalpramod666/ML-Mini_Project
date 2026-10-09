@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { checkHealth, analyzeFile } from "./api/client";
 import UploadForm from "./components/UploadForm";
 import ResultsPanel from "./components/ResultsPanel";
+import StreamingReport from "./components/StreamingReport";
 
 function App() {
   const [status, setStatus] = useState("checking...");
@@ -41,6 +42,7 @@ function App() {
       {error && <p className="text-red-400 text-sm">{error}</p>}
 
       <ResultsPanel result={analysisResult} />
+      <StreamingReport active={!!analysisResult} />
     </div>
   );
 }
