@@ -35,7 +35,7 @@ MODEL_PATH = PROJECT_ROOT / "models" / "clinical-gatekeeper-Q4_K_M.gguf"
 
 llm = Llama(
     model_path=str(MODEL_PATH),
-    n_ctx=2048,
+    n_ctx=1024,
     n_gpu_layers=-1,
     verbose=False,
 )
@@ -76,7 +76,7 @@ def generate_report(metrics_json: dict) -> str:
 
     output = llm(
         prompt,
-        max_tokens=100,
+        max_tokens=60,
         temperature=0.0,
         stop=["<|eot_id|>"],
     )
@@ -112,7 +112,7 @@ def generate_report_stream(metrics_json: dict) -> Iterator[str]:
 
     stream = llm(
         prompt,
-        max_tokens=100,
+        max_tokens=60,
         temperature=0.0,
         stop=["<|eot_id|>"],
         stream=True,
