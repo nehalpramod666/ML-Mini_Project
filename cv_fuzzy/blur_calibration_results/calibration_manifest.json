@@ -1,0 +1,42 @@
+[
+  {
+    "filename": "blur_k03_s0p5.png",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "kernel_size": 3,
+    "sigma": 0.5,
+    "original_blur_score": 108.16196905076504,
+    "blur_score": 63.732815500348806
+  },
+  {
+    "filename": "blur_k05_s0p8.png",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "kernel_size": 5,
+    "sigma": 0.8,
+    "original_blur_score": 108.16196905076504,
+    "blur_score": 27.40299418196082
+  },
+  {
+    "filename": "blur_k05_s1p0.png",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "kernel_size": 5,
+    "sigma": 1.0,
+    "original_blur_score": 108.16196905076504,
+    "blur_score": 19.140418644994497
+  },
+  {
+    "filename": "blur_k09_s2p0.png",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "kernel_size": 9,
+    "sigma": 2.0,
+    "original_blur_score": 108.16196905076504,
+    "blur_score": 4.8860931396484375
+  },
+  {
+    "filename": "blur_k15_s5p0.png",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "kernel_size": 15,
+    "sigma": 5.0,
+    "original_blur_score": 108.16196905076504,
+    "blur_score": 1.8778042644262314
+  }
+]
