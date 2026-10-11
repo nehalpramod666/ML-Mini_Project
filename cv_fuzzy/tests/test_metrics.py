@@ -157,3 +157,60 @@ def test_analyze_image_returns_expected_structure():
         "contrast",
         "noise",
     }
+# Multi-source blur calibration robustness tests
+
+def test_blur_score_for_2d_gradient_is_finite():
+    """A smooth 2D gradient should produce a valid finite score."""
+    y, x = np.indices((128, 128))
+    gradient = ((x + y) / 2).astype(np.uint8)
+
+    score = compute_blur(gradient)
+
+    assert np.isfinite(score)
+    assert score >= 0
+
+
+def test_blur_score_decreases_with_stronger_blur_on_sharp_edge():
+    """Increasing blur strength should reduce an edge-rich image's score."""
+    sharp = np.zeros((128, 128), dtype=np.uint8)
+    sharp[:, 64:] = 255
+
+    settings = [
+        (3, 0.5),
+        (5, 1.0),
+        (9, 2.0),
+        (15, 5.0),
+    ]
+
+    scores = [
+        compute_blur(
+            cv2.GaussianBlur(sharp, (kernel, kernel), sigmaX=sigma)
+        )
+        for kernel, sigma in settings
+    ]
+
+    assert all(
+        earlier > later
+        for earlier, later in zip(scores, scores[1:])
+    )
+
+
+def test_blur_score_for_flat_image_is_finite_and_near_zero():
+    """A flat image should not produce NaN or infinity."""
+    flat = np.full((128, 128), 128, dtype=np.uint8)
+
+    score = compute_blur(flat)
+
+    assert np.isfinite(score)
+    assert score == pytest.approx(0.0, abs=1e-6)
+
+
+def test_blur_score_is_reproducible():
+    """Identical input and processing should produce identical scores."""
+    sharp = _make_sharp_image()
+    blurred = cv2.GaussianBlur(sharp, (5, 5), sigmaX=1.0)
+
+    first_score = compute_blur(blurred)
+    second_score = compute_blur(blurred.copy())
+
+    assert first_score == second_score
