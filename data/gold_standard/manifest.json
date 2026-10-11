@@ -1,0 +1,969 @@
+[
+  {
+    "filename": "blur_000.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_001.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_002.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_003.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 21,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_004.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 21,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_005.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_006.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_007.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_008.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 21,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_009.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 21,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_010.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_011.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 21,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_012.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_013.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 21,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_014.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 15,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_015.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_016.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 15,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_017.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_018.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_019.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 15,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_020.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_021.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 21,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_022.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 15,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_023.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 21,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_024.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 21,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_025.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 21,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_026.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 21,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_027.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_028.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 15,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_029.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_030.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 15,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_031.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 15,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_032.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 9,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "blur_033.png",
+    "injected_defect": "blur",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "kernel_size": 15,
+      "sigma": 5.0
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_034.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 2783290795
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_035.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 3131575764
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_036.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.02,
+      "seed": 1629748727
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_037.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 240251661
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_038.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.02,
+      "seed": 1722989659
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_039.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.01,
+      "seed": 3083418319
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_040.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 2144181937
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_041.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.01,
+      "seed": 1137651678
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_042.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 2510777721
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_043.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.02,
+      "seed": 4284391408
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_044.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.01,
+      "seed": 3246059658
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_045.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.01,
+      "seed": 2694860228
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_046.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 272849424
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_047.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 4278308761
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_048.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 3095476665
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_049.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 1461042543
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_050.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.02,
+      "seed": 679282378
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_051.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 3919706735
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_052.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 854316681
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_053.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.01,
+      "seed": 1392239675
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_054.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.01,
+      "seed": 3990448177
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_055.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.01,
+      "seed": 248786714
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_056.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.01,
+      "seed": 3143519183
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_057.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 3289233844
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_058.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 2361388464
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_059.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 1338811290
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_060.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.02,
+      "seed": 1939118223
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_061.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.01,
+      "seed": 274989148
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_062.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 2379074819
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_063.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.01,
+      "seed": 2710566582
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_064.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.01,
+      "seed": 3888749350
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_065.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.01,
+      "seed": 2208283728
+    },
+    "seed": 42
+  },
+  {
+    "filename": "noise_066.png",
+    "injected_defect": "noise",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "amount": 0.05,
+      "seed": 2084839399
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_067.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.7
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_068.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_069.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.5
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_070.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_071.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.7
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_072.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.5
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_073.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.5
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_074.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.7
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_075.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.7
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_076.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_077.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.7
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_078.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_079.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_080.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.7
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_081.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_082.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_083.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.5
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_084.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_085.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.7
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_086.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_087.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_088.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_089.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.5
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_090.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_091.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_092.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.5
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_093.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.5
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_094.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.5
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_095.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.5
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_096.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_097.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.5
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_098.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.3
+    },
+    "seed": 42
+  },
+  {
+    "filename": "contrast_099.png",
+    "injected_defect": "contrast",
+    "source": "cv_fuzzy\\sample_data\\CT_small.dcm",
+    "parameters": {
+      "factor": 0.7
+    },
+    "seed": 42
+  }
+]
