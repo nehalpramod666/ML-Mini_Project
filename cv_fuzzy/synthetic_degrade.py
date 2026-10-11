@@ -88,49 +88,102 @@ def reduce_contrast(
     ).astype(np.uint8)
 
 
-def generate_gold_standard_set(clean_image_paths, output_dir, n_per_defect=33):
+
+def generate_gold_standard_set(
+    clean_image_paths,
+    output_dir,
+    seed=42,
+):
+    """Generate 100 reproducible degraded images and a JSON manifest."""
+    if not clean_image_paths:
+        raise ValueError("clean_image_paths must not be empty")
+
     os.makedirs(output_dir, exist_ok=True)
+
+    rng = random.Random(seed)
     manifest = []
 
-    defect_fns = {
-        "blur": lambda img: add_gaussian_blur(
-            img, kernel_size=random.choice([9, 15, 21])
-        ),
-        "noise": lambda img: add_salt_pepper_noise(
-            img, amount=random.choice([0.01, 0.02, 0.05])
-        ),
-        "contrast": lambda img: reduce_contrast(
-            img, factor=random.choice([0.3, 0.5, 0.7])
-        ),
+    defect_counts = {
+        "blur": 34,
+        "noise": 33,
+        "contrast": 33,
     }
 
     idx = 0
 
-    for defect_name, fn in defect_fns.items():
-        for i in range(n_per_defect):
-            src_path = random.choice(clean_image_paths)
-
+    for defect_name, count in defect_counts.items():
+        for _ in range(count):
+            src_path = rng.choice(clean_image_paths)
             img = load_dicom(src_path)
-            degraded = fn(img)
+
+            if img.ndim != 2:
+                raise ValueError(
+                    f"Expected a 2D grayscale image: {src_path}"
+                )
+
+            if defect_name == "blur":
+                kernel_size = rng.choice([9, 15, 21])
+                sigma = 5.0
+
+                degraded = add_gaussian_blur(
+                    img,
+                    kernel_size=kernel_size,
+                    sigma=sigma,
+                )
+
+                parameters = {
+                    "kernel_size": kernel_size,
+                    "sigma": sigma,
+                }
+
+            elif defect_name == "noise":
+                amount = rng.choice([0.01, 0.02, 0.05])
+                noise_seed = rng.randrange(0, 2**32)
+
+                degraded = add_salt_pepper_noise(
+                    img,
+                    amount=amount,
+                    seed=noise_seed,
+                )
+
+                parameters = {
+                    "amount": amount,
+                    "seed": noise_seed,
+                }
+
+            else:
+                factor = rng.choice([0.3, 0.5, 0.7])
+
+                degraded = reduce_contrast(
+                    img,
+                    factor=factor,
+                )
+
+                parameters = {
+                    "factor": factor,
+                }
 
             out_name = f"{defect_name}_{idx:03d}.png"
-            cv2.imwrite(
-                os.path.join(output_dir, out_name),
-                degraded,
-            )
+            out_path = os.path.join(output_dir, out_name)
+
+            if not cv2.imwrite(out_path, degraded):
+                raise RuntimeError(
+                    f"Failed to save image: {out_path}"
+                )
 
             manifest.append({
                 "filename": out_name,
                 "injected_defect": defect_name,
-                "source": src_path,
+                "source": str(src_path),
+                "parameters": parameters,
+                "seed": seed,
             })
 
             idx += 1
 
-    with open(
-        os.path.join(output_dir, "manifest.json"),
-        "w",
-    ) as f:
+    manifest_path = os.path.join(output_dir, "manifest.json")
+
+    with open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
 
     return manifest
