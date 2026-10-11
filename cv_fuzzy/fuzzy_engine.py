@@ -1,5 +1,6 @@
 """Fuzzy image-quality scoring for the M2 computer-vision pipeline."""
 
+
 import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
@@ -16,7 +17,15 @@ SNR_MAX = 10.0
 
 def _build_control_system():
     """Build the fuzzy variables and inference rules."""
-    blur_universe = np.unique(np.concatenate((np.linspace(0, 100, 201), np.linspace(100, BLUR_MAX, 500))))
+    blur_universe = np.unique(
+        np.concatenate(
+            (
+                np.linspace(0, 200, 401),
+                np.linspace(200, BLUR_MAX, 500),
+            )
+        )
+    )
+
     blur = ctrl.Antecedent(blur_universe, "blur")
     contrast = ctrl.Antecedent(
         np.linspace(0, CONTRAST_MAX, 401), "contrast"
@@ -24,10 +33,14 @@ def _build_control_system():
     snr = ctrl.Antecedent(np.linspace(0, SNR_MAX, 201), "snr")
     quality = ctrl.Consequent(np.linspace(0, 100, 101), "quality")
 
-    blur["low"] = fuzz.trapmf(blur.universe, [0, 0, 5, 10])
-    blur["medium"] = fuzz.trimf(blur.universe, [5, 25, 80])
+    blur["low"] = fuzz.trapmf(
+        blur.universe, [0, 0, 5, 50]
+    )
+    blur["medium"] = fuzz.trimf(
+        blur.universe, [20, 60, 110]
+    )
     blur["high"] = fuzz.trapmf(
-        blur.universe, [2500, 7000, BLUR_MAX, BLUR_MAX]
+        blur.universe, [80, 110, BLUR_MAX, BLUR_MAX]
     )
 
     contrast["low"] = fuzz.trapmf(

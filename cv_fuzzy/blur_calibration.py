@@ -11,15 +11,34 @@ from cv_fuzzy.metrics import compute_blur
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "cv_fuzzy" / "sample_data" / "CT_small.dcm"
-OUTPUT_DIR = ROOT / "cv_fuzzy" / "blur_calibration_results"
+OUTPUT_DIR = ROOT / "cv_fuzzy" / "blur_calibration_results_day14"
 
 CANDIDATE_SETTINGS = [
+    # Mild blur: establish the transition
+    (3, 0.35),
+    (3, 0.4),
+    (3, 0.45),
     (3, 0.5),
+
+    # Dense sampling of mild-to-moderate blur
+    (5, 0.55),
+    (5, 0.6),
+    (5, 0.65),
+    (5, 0.7),
+    (5, 0.75),
     (5, 0.8),
+    (5, 0.9),
     (5, 1.0),
+
+    # Moderate blur
+    (7, 1.25),
+    (7, 1.5),
+
+    # Strong-blur reference samples
     (9, 2.0),
     (15, 5.0),
 ]
+
 
 
 def run_calibration():
