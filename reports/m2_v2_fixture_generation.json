@@ -1,0 +1,3747 @@
+{
+  "status": "DRAFT_FIXTURES_NOT_YET_REVIEWED",
+  "source_commit_baseline": "8427b0c",
+  "generated_from_actual_m2_function": "cv_fuzzy.fuzzy_engine.analyze_image_fuzzy",
+  "success_count": 101,
+  "blocked_count": 0,
+  "note": "Review all blocked errors. Do not send failed candidates to M1 as successful assessments.",
+  "fixtures": [
+    {
+      "label": "clean_source",
+      "filename": "cv_fuzzy\\sample_data\\CT_small.dcm",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 108.16196905076504,
+          "contrast": 46.93810981929438,
+          "noise": 2.035261142873869
+        },
+        "fuzzy_score": 22,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 108.16196905076504,
+          "contrast": 46.93810981929438,
+          "noise": 2.035261142873869
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.35454634991862743,
+          "contrast": 0.0,
+          "noise": 79.64738857126132
+        },
+        "fuzzy_score": 22,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_000.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_001.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_002.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_003.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 78.91207222542435,
+          "contrast": 0.0,
+          "noise": 77.47781549135398
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_004.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 78.91207222542435,
+          "contrast": 0.0,
+          "noise": 77.47781549135398
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_005.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_006.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_007.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_008.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 78.91207222542435,
+          "contrast": 0.0,
+          "noise": 77.47781549135398
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_009.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 78.91207222542435,
+          "contrast": 0.0,
+          "noise": 77.47781549135398
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_010.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_011.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 78.91207222542435,
+          "contrast": 0.0,
+          "noise": 77.47781549135398
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_012.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_013.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 78.91207222542435,
+          "contrast": 0.0,
+          "noise": 77.47781549135398
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_014.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 77.5555618076927,
+          "contrast": 0.0,
+          "noise": 77.91101265590487
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_015.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_016.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 77.5555618076927,
+          "contrast": 0.0,
+          "noise": 77.91101265590487
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_017.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_018.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_019.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 77.5555618076927,
+          "contrast": 0.0,
+          "noise": 77.91101265590487
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_020.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_021.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 78.91207222542435,
+          "contrast": 0.0,
+          "noise": 77.47781549135398
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_022.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 77.5555618076927,
+          "contrast": 0.0,
+          "noise": 77.91101265590487
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_023.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 78.91207222542435,
+          "contrast": 0.0,
+          "noise": 77.47781549135398
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_024.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 78.91207222542435,
+          "contrast": 0.0,
+          "noise": 77.47781549135398
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_025.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 78.91207222542435,
+          "contrast": 0.0,
+          "noise": 77.47781549135398
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_026.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.6997045129537582,
+          "contrast": 42.42686378535135,
+          "noise": 2.2522184508646017
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 78.91207222542435,
+          "contrast": 0.0,
+          "noise": 77.47781549135398
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_027.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_028.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 77.5555618076927,
+          "contrast": 0.0,
+          "noise": 77.91101265590487
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_029.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_030.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 77.5555618076927,
+          "contrast": 0.0,
+          "noise": 77.91101265590487
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_031.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 77.5555618076927,
+          "contrast": 0.0,
+          "noise": 77.91101265590487
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_032.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3.0833654403686523,
+          "contrast": 44.651494358202775,
+          "noise": 2.139900243557932
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 70.12607519010935,
+          "contrast": 0.0,
+          "noise": 78.60099756442068
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "blur",
+      "filename": "blur_033.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "motion_blur"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 1.8778042644262314,
+          "contrast": 43.258778125675356,
+          "noise": 2.2088987344095137
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 77.5555618076927,
+          "contrast": 0.0,
+          "noise": 77.91101265590487
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_034.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 19662.463355883956,
+          "contrast": 54.192523595289444,
+          "noise": 1.7923340171607711
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 19662.463355883956,
+          "contrast": 54.192523595289444,
+          "noise": 1.7923340171607711
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.0766598283923
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_035.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 19551.743041455746,
+          "contrast": 54.22043892317953,
+          "noise": 1.790748207445533
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 19551.743041455746,
+          "contrast": 54.22043892317953,
+          "noise": 1.790748207445533
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.09251792554467
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_036.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 7570.05428981781,
+          "contrast": 49.99268134913912,
+          "noise": 1.922781443321309
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 7570.05428981781,
+          "contrast": 49.99268134913912,
+          "noise": 1.922781443321309
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.77218556678692
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_037.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 18438.002759203315,
+          "contrast": 54.15091048133015,
+          "noise": 1.788837650908886
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 18438.002759203315,
+          "contrast": 54.15091048133015,
+          "noise": 1.788837650908886
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.11162349091114
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_038.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 7504.963325917721,
+          "contrast": 49.98798536963692,
+          "noise": 1.9223845422156836
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 7504.963325917721,
+          "contrast": 49.98798536963692,
+          "noise": 1.9223845422156836
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.77615457784316
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_039.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 4242.970296885818,
+          "contrast": 48.46733291851442,
+          "noise": 1.978616288949919
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 4242.970296885818,
+          "contrast": 48.46733291851442,
+          "noise": 1.978616288949919
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.2138371105008
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_040.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 19822.104145433754,
+          "contrast": 54.31805959662503,
+          "noise": 1.7839701041090688
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 19822.104145433754,
+          "contrast": 54.31805959662503,
+          "noise": 1.7839701041090688
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.16029895890931
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_041.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 4284.734696492553,
+          "contrast": 48.520776707910976,
+          "noise": 1.97507081949121
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 4284.734696492553,
+          "contrast": 48.520776707910976,
+          "noise": 1.97507081949121
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.24929180508789
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_042.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 19650.451998140663,
+          "contrast": 54.12861173427409,
+          "noise": 1.793193030571412
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 19650.451998140663,
+          "contrast": 54.12861173427409,
+          "noise": 1.793193030571412
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.06806969428588
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_043.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 7916.274532660842,
+          "contrast": 49.97306447014081,
+          "noise": 1.926320932624982
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 7916.274532660842,
+          "contrast": 49.97306447014081,
+          "noise": 1.926320932624982
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.73679067375018
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_044.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3805.706912036985,
+          "contrast": 48.460115302730806,
+          "noise": 1.9783341350730608
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3805.706912036985,
+          "contrast": 48.460115302730806,
+          "noise": 1.9783341350730608
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.21665864926939
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_045.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 4059.750865396112,
+          "contrast": 48.49090022754929,
+          "noise": 1.9760422658628316
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 4059.750865396112,
+          "contrast": 48.49090022754929,
+          "noise": 1.9760422658628316
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.23957734137169
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_046.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 19477.118630990386,
+          "contrast": 54.179470119439024,
+          "noise": 1.7915604505628289
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 19477.118630990386,
+          "contrast": 54.179470119439024,
+          "noise": 1.7915604505628289
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.0843954943717
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_047.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 19010.32084500417,
+          "contrast": 54.29270840417809,
+          "noise": 1.7869311890306994
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 19010.32084500417,
+          "contrast": 54.29270840417809,
+          "noise": 1.7869311890306994
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.13068810969301
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_048.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 18081.11653803289,
+          "contrast": 54.237293636594465,
+          "noise": 1.7882336328684234
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 18081.11653803289,
+          "contrast": 54.237293636594465,
+          "noise": 1.7882336328684234
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.11766367131577
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_049.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 19771.35808205232,
+          "contrast": 54.08673874014836,
+          "noise": 1.7952594981149375
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 19771.35808205232,
+          "contrast": 54.08673874014836,
+          "noise": 1.7952594981149375
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.04740501885063
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_050.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 8306.921582445502,
+          "contrast": 50.010137512576335,
+          "noise": 1.921504945638962
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 8306.921582445502,
+          "contrast": 50.010137512576335,
+          "noise": 1.921504945638962
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.78495054361038
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_051.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 20239.611901517957,
+          "contrast": 54.2005101449066,
+          "noise": 1.7897163657633623
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 20239.611901517957,
+          "contrast": 54.2005101449066,
+          "noise": 1.7897163657633623
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.10283634236637
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_052.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 18931.781603153795,
+          "contrast": 54.29296106842352,
+          "noise": 1.7845362352875171
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 18931.781603153795,
+          "contrast": 54.29296106842352,
+          "noise": 1.7845362352875171
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.15463764712483
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_053.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 4350.447423066944,
+          "contrast": 48.499798916209066,
+          "noise": 1.9765417503487495
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 4350.447423066944,
+          "contrast": 48.499798916209066,
+          "noise": 1.9765417503487495
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.2345824965125
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_054.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 4004.662492956966,
+          "contrast": 48.45587458181421,
+          "noise": 1.9788070587449973
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 4004.662492956966,
+          "contrast": 48.45587458181421,
+          "noise": 1.9788070587449973
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.21192941255002
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_055.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 4073.289160039276,
+          "contrast": 48.48772008609259,
+          "noise": 1.976555794165295
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 4073.289160039276,
+          "contrast": 48.48772008609259,
+          "noise": 1.976555794165295
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.23444205834704
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_056.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 4136.504547204822,
+          "contrast": 48.483662787070664,
+          "noise": 1.9782431869300698
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 4136.504547204822,
+          "contrast": 48.483662787070664,
+          "noise": 1.9782431869300698
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.2175681306993
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_057.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 18653.010759696364,
+          "contrast": 54.158006250790656,
+          "noise": 1.7912753546767144
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 18653.010759696364,
+          "contrast": 54.158006250790656,
+          "noise": 1.7912753546767144
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.08724645323285
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_058.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 19544.262185867876,
+          "contrast": 54.277268966919785,
+          "noise": 1.7882603803738457
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 19544.262185867876,
+          "contrast": 54.277268966919785,
+          "noise": 1.7882603803738457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.11739619626155
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_059.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 18995.472713764757,
+          "contrast": 54.19272169081756,
+          "noise": 1.790040029115537
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 18995.472713764757,
+          "contrast": 54.19272169081756,
+          "noise": 1.790040029115537
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.09959970884462
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_060.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 7810.1126268953085,
+          "contrast": 50.069881266192056,
+          "noise": 1.9197351424404825
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 7810.1126268953085,
+          "contrast": 50.069881266192056,
+          "noise": 1.9197351424404825
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.80264857559519
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_061.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 4018.995869990438,
+          "contrast": 48.47313016102931,
+          "noise": 1.9778848046253166
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 4018.995869990438,
+          "contrast": 48.47313016102931,
+          "noise": 1.9778848046253166
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.22115195374684
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_062.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 18894.9843749851,
+          "contrast": 54.25765300693648,
+          "noise": 1.7883343155573188
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 18894.9843749851,
+          "contrast": 54.25765300693648,
+          "noise": 1.7883343155573188
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.11665684442681
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_063.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 4065.4880415461957,
+          "contrast": 48.54809520615715,
+          "noise": 1.9743592202228115
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 4065.4880415461957,
+          "contrast": 48.54809520615715,
+          "noise": 1.9743592202228115
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.25640779777189
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_064.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 4186.053194399923,
+          "contrast": 48.508083957742585,
+          "noise": 1.9761727065123402
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 4186.053194399923,
+          "contrast": 48.508083957742585,
+          "noise": 1.9761727065123402
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.23827293487659
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_065.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 3879.7067601047456,
+          "contrast": 48.48902191850107,
+          "noise": 1.9759967134470227
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 3879.7067601047456,
+          "contrast": 48.48902191850107,
+          "noise": 1.9759967134470227
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 80.24003286552977
+        },
+        "fuzzy_score": 19,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "noise",
+      "filename": "noise_066.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 19261.143346246332,
+          "contrast": 54.064906419409816,
+          "noise": 1.7977229967246189
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "high_noise"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 19261.143346246332,
+          "contrast": 54.064906419409816,
+          "noise": 1.7977229967246189
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 0.0,
+          "contrast": 0.0,
+          "noise": 82.02277003275381
+        },
+        "fuzzy_score": 18,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_067.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 14.705924340684529,
+          "contrast": 28.55047632172322,
+          "noise": 71.08518561748323
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_068.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_069.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 28.2830659149657,
+          "contrast": 80.72770725656224,
+          "noise": 59.51534476158188
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_070.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_071.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 14.705924340684529,
+          "contrast": 28.55047632172322,
+          "noise": 71.08518561748323
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_072.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 28.2830659149657,
+          "contrast": 80.72770725656224,
+          "noise": 59.51534476158188
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_073.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 28.2830659149657,
+          "contrast": 80.72770725656224,
+          "noise": 59.51534476158188
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_074.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 14.705924340684529,
+          "contrast": 28.55047632172322,
+          "noise": 71.08518561748323
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_075.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 14.705924340684529,
+          "contrast": 28.55047632172322,
+          "noise": 71.08518561748323
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_076.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_077.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 14.705924340684529,
+          "contrast": 28.55047632172322,
+          "noise": 71.08518561748323
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_078.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_079.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_080.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 14.705924340684529,
+          "contrast": 28.55047632172322,
+          "noise": 71.08518561748323
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_081.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_082.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_083.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 28.2830659149657,
+          "contrast": 80.72770725656224,
+          "noise": 59.51534476158188
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_084.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_085.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 14.705924340684529,
+          "contrast": 28.55047632172322,
+          "noise": 71.08518561748323
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_086.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_087.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_088.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_089.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 28.2830659149657,
+          "contrast": 80.72770725656224,
+          "noise": 59.51534476158188
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_090.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_091.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_092.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 28.2830659149657,
+          "contrast": 80.72770725656224,
+          "noise": 59.51534476158188
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_093.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 28.2830659149657,
+          "contrast": 80.72770725656224,
+          "noise": 59.51534476158188
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_094.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 28.2830659149657,
+          "contrast": 80.72770725656224,
+          "noise": 59.51534476158188
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_095.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 28.2830659149657,
+          "contrast": 80.72770725656224,
+          "noise": 59.51534476158188
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_096.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_097.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 28.29833446443081,
+          "contrast": 23.469012693818797,
+          "noise": 4.048465523841812
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 28.2830659149657,
+          "contrast": 80.72770725656224,
+          "noise": 59.51534476158188
+        },
+        "fuzzy_score": 25,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_098.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 11.322325315326452,
+          "contrast": 14.084732696915147,
+          "noise": 6.745043606775457
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 46.67381721593037,
+          "contrast": 100.0,
+          "noise": 32.54956393224543
+        },
+        "fuzzy_score": 17,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "status": "success"
+    },
+    {
+      "label": "contrast",
+      "filename": "contrast_099.png",
+      "raw_m2_output": {
+        "metrics": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "low_contrast"
+      },
+      "v2_output": {
+        "contract_version": 2,
+        "metrics_scale": "severity_0_100",
+        "metrics_raw": {
+          "blur": 54.531490325927734,
+          "contrast": 32.86091426208982,
+          "noise": 2.8914814382516765
+        },
+        "metrics_raw_status": {
+          "blur": "finite",
+          "contrast": "finite",
+          "noise": "finite"
+        },
+        "metrics": {
+          "blur": 14.705924340684529,
+          "contrast": 28.55047632172322,
+          "noise": 71.08518561748323
+        },
+        "fuzzy_score": 41,
+        "state": "REJECT",
+        "dominant_defect": "sensor_noise"
+      },
+      "status": "success"
+    }
+  ]
+}
