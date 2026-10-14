@@ -10,7 +10,7 @@ from __future__ import annotations
 import csv
 import json
 import math
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path.cwd()
