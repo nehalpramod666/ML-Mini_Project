@@ -12,3 +12,4 @@ pytest==9.1.1
 
 scikit-fuzzy==0.5.0
 networkx==3.7
+scipy==1.18.1
