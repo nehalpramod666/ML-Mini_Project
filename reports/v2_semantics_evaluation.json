@@ -1,0 +1,730 @@
+{
+  "status": "EXPLORATORY_NOT_CLINICALLY_VALIDATED",
+  "input_fixture_report": "reports\\m2_v2_fixture_generation.json",
+  "input_fixture_status": "DRAFT_FIXTURES_NOT_YET_REVIEWED",
+  "input_fixture_success_count": 101,
+  "input_fixture_blocked_count": 0,
+  "total_samples": 101,
+  "class_counts": {
+    "clean_source": 1,
+    "blur": 34,
+    "contrast": 33,
+    "noise": 33
+  },
+  "current_contract": {
+    "state_is_derived_from_fuzzy_score": true,
+    "accept_threshold": 75,
+    "borderline_lower_threshold": 45,
+    "reject_threshold": 45,
+    "noise_formula": "100 * clip(1 - linear_snr / 10, 0, 1)",
+    "defect_tie_priority": [
+      "motion_blur",
+      "low_contrast",
+      "sensor_noise"
+    ],
+    "high_contrast_trigger_enabled": false
+  },
+  "alternative_formula_comparisons": {
+    "log_curve": {
+      "formula": "100 * clip(1 - log1p(linear_snr) / log1p(10), 0, 1)",
+      "selection_basis": "Illustrative curve-shape sensitivity analysis; not tuned or validated as a replacement.",
+      "limitation": "A monotonic transformation changes severity scale but does not fix the fact that image mean and image standard deviation both influence the raw SNR proxy."
+    },
+    "clean_source_reference_delta": {
+      "formula": "100 * clip((clean_reference_snr - snr) / clean_reference_snr, 0, 1)",
+      "reference_snr": 2.035261142873869,
+      "selection_basis": "Uses the one clean image in this dataset as an explicit reference; this is source-specific and data-dependent.",
+      "limitation": "Counterfactual only. It must not be treated as a validated general-purpose calibration or serialized as a successful v2 contract output."
+    }
+  },
+  "classes": {
+    "clean_source": {
+      "sample_count": 1,
+      "fixture_status_counts": {
+        "success": 1
+      },
+      "source_m2": {
+        "score_distribution": {
+          "count": 1,
+          "min": 22.0,
+          "p25": 22.0,
+          "median": 22.0,
+          "mean": 22.0,
+          "p75": 22.0,
+          "max": 22.0
+        },
+        "state_counts": {
+          "REJECT": 1
+        },
+        "dominant_defect_counts": {
+          "high_noise": 1
+        }
+      },
+      "v2": {
+        "score_distribution": {
+          "count": 1,
+          "min": 22.0,
+          "p25": 22.0,
+          "median": 22.0,
+          "mean": 22.0,
+          "p75": 22.0,
+          "max": 22.0
+        },
+        "state_counts": {
+          "REJECT": 1
+        },
+        "dominant_defect_counts": {
+          "sensor_noise": 1
+        }
+      },
+      "raw_linear_snr": {
+        "count": 1,
+        "min": 2.035261142873869,
+        "p25": 2.035261142873869,
+        "median": 2.035261142873869,
+        "mean": 2.035261142873869,
+        "p75": 2.035261142873869,
+        "max": 2.035261142873869
+      },
+      "implied_mean_intensity": {
+        "count": 1,
+        "min": 95.53131103515625,
+        "p25": 95.53131103515625,
+        "median": 95.53131103515625,
+        "mean": 95.53131103515625,
+        "p75": 95.53131103515625,
+        "max": 95.53131103515625
+      },
+      "raw_contrast_std": {
+        "count": 1,
+        "min": 46.93810981929438,
+        "p25": 46.93810981929438,
+        "median": 46.93810981929438,
+        "mean": 46.93810981929438,
+        "p75": 46.93810981929438,
+        "max": 46.93810981929438
+      },
+      "severity_distributions": {
+        "blur_severity": {
+          "count": 1,
+          "min": 0.35454634991862743,
+          "p25": 0.35454634991862743,
+          "median": 0.35454634991862743,
+          "mean": 0.35454634991862743,
+          "p75": 0.35454634991862743,
+          "max": 0.35454634991862743
+        },
+        "low_contrast_severity": {
+          "count": 1,
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "p75": 0.0,
+          "max": 0.0
+        },
+        "existing_linear_snr_noise_severity": {
+          "count": 1,
+          "min": 79.64738857126132,
+          "p25": 79.64738857126132,
+          "median": 79.64738857126132,
+          "mean": 79.64738857126132,
+          "p75": 79.64738857126132,
+          "max": 79.64738857126132
+        },
+        "log_curve_noise_severity": {
+          "count": 1,
+          "min": 53.69699931495777,
+          "p25": 53.69699931495777,
+          "median": 53.69699931495777,
+          "mean": 53.69699931495777,
+          "p75": 53.69699931495777,
+          "max": 53.69699931495777
+        },
+        "source_reference_delta_noise_severity": {
+          "count": 1,
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "p75": 0.0,
+          "max": 0.0
+        }
+      },
+      "count_noise_severity_exceeds_blur": 1,
+      "count_noise_severity_exceeds_low_contrast": 1,
+      "counterfactual_dominant_defect_counts": {
+        "existing_linear_snr": {
+          "sensor_noise": 1
+        },
+        "log_curve": {
+          "sensor_noise": 1
+        },
+        "clean_source_reference_delta": {
+          "motion_blur": 1
+        }
+      }
+    },
+    "blur": {
+      "sample_count": 34,
+      "fixture_status_counts": {
+        "success": 34
+      },
+      "source_m2": {
+        "score_distribution": {
+          "count": 34,
+          "min": 17.0,
+          "p25": 17.0,
+          "median": 17.0,
+          "mean": 17.0,
+          "p75": 17.0,
+          "max": 17.0
+        },
+        "state_counts": {
+          "REJECT": 34
+        },
+        "dominant_defect_counts": {
+          "motion_blur": 34
+        }
+      },
+      "v2": {
+        "score_distribution": {
+          "count": 34,
+          "min": 17.0,
+          "p25": 17.0,
+          "median": 17.0,
+          "mean": 17.0,
+          "p75": 17.0,
+          "max": 17.0
+        },
+        "state_counts": {
+          "REJECT": 34
+        },
+        "dominant_defect_counts": {
+          "motion_blur": 11,
+          "sensor_noise": 23
+        }
+      },
+      "raw_linear_snr": {
+        "count": 34,
+        "min": 2.139900243557932,
+        "p25": 2.139900243557932,
+        "median": 2.2088987344095137,
+        "mean": 2.192473426122227,
+        "p75": 2.2522184508646017,
+        "max": 2.2522184508646017
+      },
+      "implied_mean_intensity": {
+        "count": 34,
+        "min": 95.54974365234375,
+        "p25": 95.54974365234375,
+        "median": 95.55426025390625,
+        "mean": 95.55236636891084,
+        "p75": 95.55456542968749,
+        "max": 95.55456542968749
+      },
+      "raw_contrast_std": {
+        "count": 34,
+        "min": 42.42686378535135,
+        "p25": 42.42686378535135,
+        "median": 43.258778125675356,
+        "mean": 43.60406300050911,
+        "p75": 44.651494358202775,
+        "max": 44.651494358202775
+      },
+      "severity_distributions": {
+        "blur_severity": {
+          "count": 34,
+          "min": 70.12607519010935,
+          "p25": 70.12607519010935,
+          "median": 77.5555618076927,
+          "mean": 74.71671814096618,
+          "p75": 78.91207222542435,
+          "max": 78.91207222542435
+        },
+        "low_contrast_severity": {
+          "count": 34,
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "p75": 0.0,
+          "max": 0.0
+        },
+        "existing_linear_snr_noise_severity": {
+          "count": 34,
+          "min": 77.47781549135398,
+          "p25": 77.47781549135398,
+          "median": 77.91101265590487,
+          "mean": 78.07526573877773,
+          "p75": 78.60099756442068,
+          "max": 78.60099756442068
+        },
+        "log_curve_noise_severity": {
+          "count": 34,
+          "min": 50.81781189026745,
+          "p25": 50.81781189026745,
+          "median": 51.37703393003235,
+          "mean": 51.596032944050044,
+          "p75": 52.28352785763337,
+          "max": 52.28352785763337
+        },
+        "source_reference_delta_noise_severity": {
+          "count": 34,
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "p75": 0.0,
+          "max": 0.0
+        }
+      },
+      "count_noise_severity_exceeds_blur": 23,
+      "count_noise_severity_exceeds_low_contrast": 34,
+      "counterfactual_dominant_defect_counts": {
+        "existing_linear_snr": {
+          "motion_blur": 11,
+          "sensor_noise": 23
+        },
+        "log_curve": {
+          "motion_blur": 34
+        },
+        "clean_source_reference_delta": {
+          "motion_blur": 34
+        }
+      }
+    },
+    "contrast": {
+      "sample_count": 33,
+      "fixture_status_counts": {
+        "success": 33
+      },
+      "source_m2": {
+        "score_distribution": {
+          "count": 33,
+          "min": 17.0,
+          "p25": 17.0,
+          "median": 25.0,
+          "mean": 25.242424242424242,
+          "p75": 25.0,
+          "max": 41.0
+        },
+        "state_counts": {
+          "REJECT": 33
+        },
+        "dominant_defect_counts": {
+          "low_contrast": 33
+        }
+      },
+      "v2": {
+        "score_distribution": {
+          "count": 33,
+          "min": 17.0,
+          "p25": 17.0,
+          "median": 25.0,
+          "mean": 25.242424242424242,
+          "p75": 25.0,
+          "max": 41.0
+        },
+        "state_counts": {
+          "REJECT": 33
+        },
+        "dominant_defect_counts": {
+          "low_contrast": 25,
+          "sensor_noise": 8
+        }
+      },
+      "raw_linear_snr": {
+        "count": 33,
+        "min": 2.8914814382516765,
+        "p25": 4.048465523841812,
+        "median": 4.048465523841812,
+        "mean": 4.993701843820102,
+        "p75": 6.745043606775457,
+        "max": 6.745043606775457
+      },
+      "implied_mean_intensity": {
+        "count": 33,
+        "min": 95.00213623046875,
+        "p25": 95.00213623046875,
+        "median": 95.01348876953125,
+        "mean": 95.00911273378314,
+        "p75": 95.01348876953125,
+        "max": 95.0167236328125
+      },
+      "raw_contrast_std": {
+        "count": 33,
+        "min": 14.084732696915147,
+        "p25": 14.084732696915147,
+        "median": 23.469012693818797,
+        "mean": 21.48025549965557,
+        "p75": 23.469012693818797,
+        "max": 32.86091426208982
+      },
+      "severity_distributions": {
+        "blur_severity": {
+          "count": 33,
+          "min": 14.705924340684529,
+          "p25": 28.2830659149657,
+          "median": 28.2830659149657,
+          "mean": 33.35107006406329,
+          "p75": 46.67381721593037,
+          "max": 46.67381721593037
+        },
+        "low_contrast_severity": {
+          "count": 33,
+          "min": 28.55047632172322,
+          "p25": 80.72770725656224,
+          "median": 80.72770725656224,
+          "mean": 76.83881464058813,
+          "p75": 100.0,
+          "max": 100.0
+        },
+        "existing_linear_snr_noise_severity": {
+          "count": 33,
+          "min": 32.54956393224543,
+          "p25": 32.54956393224543,
+          "median": 59.51534476158188,
+          "mean": 50.06298156179896,
+          "p75": 59.51534476158188,
+          "max": 71.08518561748323
+        },
+        "log_curve_noise_severity": {
+          "count": 33,
+          "min": 14.631254859716536,
+          "p25": 14.631254859716536,
+          "median": 32.47893855852174,
+          "mean": 26.99789943821883,
+          "p75": 32.47893855852174,
+          "max": 43.33405912253199
+        },
+        "source_reference_delta_noise_severity": {
+          "count": 33,
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "p75": 0.0,
+          "max": 0.0
+        }
+      },
+      "count_noise_severity_exceeds_blur": 18,
+      "count_noise_severity_exceeds_low_contrast": 8,
+      "counterfactual_dominant_defect_counts": {
+        "existing_linear_snr": {
+          "low_contrast": 25,
+          "sensor_noise": 8
+        },
+        "log_curve": {
+          "low_contrast": 25,
+          "sensor_noise": 8
+        },
+        "clean_source_reference_delta": {
+          "low_contrast": 33
+        }
+      }
+    },
+    "noise": {
+      "sample_count": 33,
+      "fixture_status_counts": {
+        "success": 33
+      },
+      "source_m2": {
+        "score_distribution": {
+          "count": 33,
+          "min": 18.0,
+          "p25": 18.0,
+          "median": 19.0,
+          "mean": 18.515151515151516,
+          "p75": 19.0,
+          "max": 19.0
+        },
+        "state_counts": {
+          "REJECT": 33
+        },
+        "dominant_defect_counts": {
+          "high_noise": 33
+        }
+      },
+      "v2": {
+        "score_distribution": {
+          "count": 33,
+          "min": 18.0,
+          "p25": 18.0,
+          "median": 19.0,
+          "mean": 18.515151515151516,
+          "p75": 19.0,
+          "max": 19.0
+        },
+        "state_counts": {
+          "REJECT": 33
+        },
+        "dominant_defect_counts": {
+          "sensor_noise": 33
+        }
+      },
+      "raw_linear_snr": {
+        "count": 33,
+        "min": 1.7839701041090688,
+        "p25": 1.790040029115537,
+        "median": 1.9197351424404825,
+        "mean": 1.878069854814743,
+        "p75": 1.9760422658628316,
+        "max": 1.9788070587449973
+      },
+      "implied_mean_intensity": {
+        "count": 33,
+        "min": 95.81414794921875,
+        "p25": 95.874267578125,
+        "median": 96.26416015625,
+        "mean": 96.46807306463069,
+        "p75": 97.017333984375,
+        "max": 97.1937255859375
+      },
+      "raw_contrast_std": {
+        "count": 33,
+        "min": 48.45587458181421,
+        "p25": 48.499798916209066,
+        "median": 50.069881266192056,
+        "mean": 51.489971076311214,
+        "p75": 54.19272169081756,
+        "max": 54.31805959662503
+      },
+      "severity_distributions": {
+        "blur_severity": {
+          "count": 33,
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "p75": 0.0,
+          "max": 0.0
+        },
+        "low_contrast_severity": {
+          "count": 33,
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "p75": 0.0,
+          "max": 0.0
+        },
+        "existing_linear_snr_noise_severity": {
+          "count": 33,
+          "min": 80.21192941255002,
+          "p25": 80.23957734137169,
+          "median": 80.80264857559519,
+          "mean": 81.21930145185257,
+          "p75": 82.09959970884462,
+          "max": 82.16029895890931
+        },
+        "log_curve_noise_severity": {
+          "count": 33,
+          "min": 54.47995928369603,
+          "p25": 54.51868430283389,
+          "median": 55.31527503817292,
+          "mean": 55.93383268854723,
+          "p75": 57.21014363207897,
+          "max": 57.300970748690446
+        },
+        "source_reference_delta_noise_severity": {
+          "count": 33,
+          "min": 2.773800518254687,
+          "p25": 2.909645143984715,
+          "median": 5.676224932504691,
+          "mean": 7.723396509067416,
+          "p75": 12.048631430759302,
+          "max": 12.346869572224396
+        }
+      },
+      "count_noise_severity_exceeds_blur": 33,
+      "count_noise_severity_exceeds_low_contrast": 33,
+      "counterfactual_dominant_defect_counts": {
+        "existing_linear_snr": {
+          "sensor_noise": 33
+        },
+        "log_curve": {
+          "sensor_noise": 33
+        },
+        "clean_source_reference_delta": {
+          "sensor_noise": 33
+        }
+      }
+    }
+  },
+  "defect_detection_metrics": {
+    "interpretation": "Exploratory agreement between the selected sensor_noise label and the synthetic manifest's noise class. These metrics do not establish clinical validity or causation.",
+    "existing_linear_snr": {
+      "positive_class": "noise",
+      "prediction_rule": "winner_existing selects sensor_noise",
+      "sample_count": 101,
+      "confusion_matrix": {
+        "actual_non_noise": {
+          "predicted_non_noise": 36,
+          "predicted_noise": 32
+        },
+        "actual_noise": {
+          "predicted_non_noise": 0,
+          "predicted_noise": 33
+        }
+      },
+      "true_positives": 33,
+      "false_positives": 32,
+      "false_negatives": 0,
+      "true_negatives": 36,
+      "precision": 0.5076923076923077,
+      "recall": 1.0,
+      "f1": 0.673469387755102,
+      "per_class": {
+        "clean_source": {
+          "sample_count": 1,
+          "sensor_noise_predictions": 1,
+          "sensor_noise_prediction_rate": 1.0,
+          "false_positives": 1,
+          "true_negatives_within_class": 0
+        },
+        "blur": {
+          "sample_count": 34,
+          "sensor_noise_predictions": 23,
+          "sensor_noise_prediction_rate": 0.6764705882352942,
+          "false_positives": 23,
+          "true_negatives_within_class": 11
+        },
+        "contrast": {
+          "sample_count": 33,
+          "sensor_noise_predictions": 8,
+          "sensor_noise_prediction_rate": 0.24242424242424243,
+          "false_positives": 8,
+          "true_negatives_within_class": 25
+        },
+        "noise": {
+          "sample_count": 33,
+          "sensor_noise_predictions": 33,
+          "sensor_noise_prediction_rate": 1.0,
+          "true_positives": 33,
+          "false_negatives": 0,
+          "recall": 1.0
+        }
+      }
+    },
+    "log_curve": {
+      "positive_class": "noise",
+      "prediction_rule": "winner_log_curve selects sensor_noise",
+      "sample_count": 101,
+      "confusion_matrix": {
+        "actual_non_noise": {
+          "predicted_non_noise": 59,
+          "predicted_noise": 9
+        },
+        "actual_noise": {
+          "predicted_non_noise": 0,
+          "predicted_noise": 33
+        }
+      },
+      "true_positives": 33,
+      "false_positives": 9,
+      "false_negatives": 0,
+      "true_negatives": 59,
+      "precision": 0.7857142857142857,
+      "recall": 1.0,
+      "f1": 0.88,
+      "per_class": {
+        "clean_source": {
+          "sample_count": 1,
+          "sensor_noise_predictions": 1,
+          "sensor_noise_prediction_rate": 1.0,
+          "false_positives": 1,
+          "true_negatives_within_class": 0
+        },
+        "blur": {
+          "sample_count": 34,
+          "sensor_noise_predictions": 0,
+          "sensor_noise_prediction_rate": 0.0,
+          "false_positives": 0,
+          "true_negatives_within_class": 34
+        },
+        "contrast": {
+          "sample_count": 33,
+          "sensor_noise_predictions": 8,
+          "sensor_noise_prediction_rate": 0.24242424242424243,
+          "false_positives": 8,
+          "true_negatives_within_class": 25
+        },
+        "noise": {
+          "sample_count": 33,
+          "sensor_noise_predictions": 33,
+          "sensor_noise_prediction_rate": 1.0,
+          "true_positives": 33,
+          "false_negatives": 0,
+          "recall": 1.0
+        }
+      }
+    },
+    "clean_source_reference_delta": {
+      "positive_class": "noise",
+      "prediction_rule": "winner_source_reference_delta selects sensor_noise",
+      "sample_count": 101,
+      "confusion_matrix": {
+        "actual_non_noise": {
+          "predicted_non_noise": 68,
+          "predicted_noise": 0
+        },
+        "actual_noise": {
+          "predicted_non_noise": 0,
+          "predicted_noise": 33
+        }
+      },
+      "true_positives": 33,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "true_negatives": 68,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "per_class": {
+        "clean_source": {
+          "sample_count": 1,
+          "sensor_noise_predictions": 0,
+          "sensor_noise_prediction_rate": 0.0,
+          "false_positives": 0,
+          "true_negatives_within_class": 1
+        },
+        "blur": {
+          "sample_count": 34,
+          "sensor_noise_predictions": 0,
+          "sensor_noise_prediction_rate": 0.0,
+          "false_positives": 0,
+          "true_negatives_within_class": 34
+        },
+        "contrast": {
+          "sample_count": 33,
+          "sensor_noise_predictions": 0,
+          "sensor_noise_prediction_rate": 0.0,
+          "false_positives": 0,
+          "true_negatives_within_class": 33
+        },
+        "noise": {
+          "sample_count": 33,
+          "sensor_noise_predictions": 33,
+          "sensor_noise_prediction_rate": 1.0,
+          "true_positives": 33,
+          "false_negatives": 0,
+          "recall": 1.0
+        }
+      }
+    }
+  },
+  "interpretation": [
+    "State is copied from the source fuzzy score and derived from the score thresholds; changing noise severity alone cannot repair the all-REJECT state distribution.",
+    "Linear SNR is mean intensity divided by image standard deviation. Because standard deviation is also the raw contrast metric, this ratio is affected by global intensity spread and image structure, not only impulse noise.",
+    "The log-curve and clean-reference alternatives are offline sensitivity analyses, not recommended production changes. The clean-reference alternative uses one source and must not be interpreted as independent validation.",
+    "All 100 synthetic degradations originate from one CT source. Results do not establish generalization to independent clinical images."
+  ],
+  "production_changes": {
+    "v2_contract_changed": false,
+    "fixture_generator_changed": false,
+    "m1_adapter_changed": false,
+    "strict_validation_changed": false
+  },
+  "per_image_csv": "reports\\v2_semantics_per_image.csv"
+}
