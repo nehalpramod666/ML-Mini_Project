@@ -1,0 +1,146 @@
+{
+  "status": "EXPLORATORY_NOT_CLINICALLY_VALIDATED",
+  "total_images": 101,
+  "corrupted_fixtures": 100,
+  "distinct_augmented_source_images": 1,
+  "current_v2_predictions_by_class": {
+    "blur": {
+      "sensor_noise": 23,
+      "motion_blur": 11
+    },
+    "clean_source": {
+      "sensor_noise": 1
+    },
+    "contrast": {
+      "sensor_noise": 8,
+      "low_contrast": 25
+    },
+    "noise": {
+      "sensor_noise": 33
+    }
+  },
+  "current_v2_states_by_class": {
+    "blur": {
+      "REJECT": 34
+    },
+    "clean_source": {
+      "REJECT": 1
+    },
+    "contrast": {
+      "REJECT": 33
+    },
+    "noise": {
+      "REJECT": 33
+    }
+  },
+  "impulse_experiment": {
+    "kernel_size": 3,
+    "residual_threshold": 64.0,
+    "classification_threshold_fraction": 0.001,
+    "classification_threshold_percent": 0.1,
+    "tp": 33,
+    "fn": 0,
+    "fp": 0,
+    "tn": 67,
+    "min_noise_fixture_percent": 0.830078125,
+    "max_clean_blur_contrast_percent": 0.0,
+    "clean_reference_percent": 0.0
+  },
+  "candidate_comparisons": {
+    "0.0": {
+      "severity_floor": 0.0,
+      "correct_corrupted_fixtures": 100,
+      "total_corrupted_fixtures": 100,
+      "fixture_class_agreement": 1.0,
+      "predictions_by_class": {
+        "blur": {
+          "motion_blur": 34
+        },
+        "clean_source": {
+          "motion_blur": 1
+        },
+        "contrast": {
+          "low_contrast": 33
+        },
+        "noise": {
+          "sensor_noise": 33
+        }
+      },
+      "clean_reference_candidate": "motion_blur"
+    },
+    "1.0": {
+      "severity_floor": 1.0,
+      "correct_corrupted_fixtures": 100,
+      "total_corrupted_fixtures": 100,
+      "fixture_class_agreement": 1.0,
+      "predictions_by_class": {
+        "blur": {
+          "motion_blur": 34
+        },
+        "clean_source": {
+          "none": 1
+        },
+        "contrast": {
+          "low_contrast": 33
+        },
+        "noise": {
+          "sensor_noise": 33
+        }
+      },
+      "clean_reference_candidate": "none"
+    },
+    "5.0": {
+      "severity_floor": 5.0,
+      "correct_corrupted_fixtures": 100,
+      "total_corrupted_fixtures": 100,
+      "fixture_class_agreement": 1.0,
+      "predictions_by_class": {
+        "blur": {
+          "motion_blur": 34
+        },
+        "clean_source": {
+          "none": 1
+        },
+        "contrast": {
+          "low_contrast": 33
+        },
+        "noise": {
+          "sensor_noise": 33
+        }
+      },
+      "clean_reference_candidate": "none"
+    },
+    "10.0": {
+      "severity_floor": 10.0,
+      "correct_corrupted_fixtures": 100,
+      "total_corrupted_fixtures": 100,
+      "fixture_class_agreement": 1.0,
+      "predictions_by_class": {
+        "blur": {
+          "motion_blur": 34
+        },
+        "clean_source": {
+          "none": 1
+        },
+        "contrast": {
+          "low_contrast": 33
+        },
+        "noise": {
+          "sensor_noise": 33
+        }
+      },
+      "clean_reference_candidate": "none"
+    }
+  },
+  "limitations": [
+    "All degraded fixtures were generated from one source image.",
+    "Class agreement measures synthetic fixture labels, not clinical accuracy.",
+    "Impulse density targets salt-and-pepper corruption, not all sensor noise.",
+    "Candidate labels and severity floors are exploratory, not production settings.",
+    "The candidate experiment does not recalibrate the overall fuzzy quality score."
+  ],
+  "reports": [
+    "reports\\m2_day14_candidate_evaluation.json",
+    "reports\\m2_day14_candidate_per_image.csv"
+  ]
+}
