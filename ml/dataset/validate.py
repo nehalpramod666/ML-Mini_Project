@@ -241,6 +241,25 @@ def validate_dataset(path: str, expected_rows: int = 500) -> None:
                             )
                         )
 
+            # -------------------------------------------------
+            # 7. P10 — Cross-metric argmax invariant (DEFERRED)
+            #    A cross-metric argmax check (e.g. assert blur > noise when
+            #    dominant_defect is motion_blur) would require all three
+            #    metrics to be on a common, comparable severity scale.
+            #    In the current training schema:
+            #      blur    is a synthetic score derived from Laplacian variance
+            #      contrast is a synthetic directional score
+            #      noise   is a synthetic score derived from an SNR proxy
+            #    The generator places the dominant defect's metric in a
+            #    state-dependent high range and the others in a neutral band.
+            #    Sections 5 and 6 already verify per-field ranges for each
+            #    declared defect, which is the strongest invariant the current
+            #    schema supports.
+            #    Cross-metric argmax will be added once D7(b) confirms a
+            #    shared severity representation for all three fields.
+            #    Tracking issue: P10, blocked on D7(b).
+            # -------------------------------------------------
+
     # ---------------------------------------------------------
     # 7. Check total number of rows
     # ---------------------------------------------------------

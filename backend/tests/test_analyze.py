@@ -5,7 +5,12 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from main import app
 
+# P16 — MOCK TESTS ONLY.  These tests validate the current MOCK_RESPONSE
+# in backend/routes/analyze.py and do NOT constitute real integration evidence.
+# Replace these tests when Phase 4 replaces the mock with the real pipeline:
+#   load_dicom → analyze_image_fuzzy → build_v2_payload → validate_v2_payload
 client = TestClient(app)
+
 
 UPLOAD_DIR = "temp_uploads"
 
