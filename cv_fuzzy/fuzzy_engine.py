@@ -1,4 +1,13 @@
-"""Fuzzy image-quality scoring for the M2 computer-vision pipeline."""
+"""Fuzzy image-quality scoring for the M2 computer-vision pipeline.
+
+Known rule-coverage note
+------------------------
+The original rule base (commit 8427b0c) had no consequent for the
+combination blur=high AND contrast=high AND snr=medium (e.g. blur=200,
+contrast=70, snr=3.0).  skfuzzy raises KeyError when no output membership
+is activated.  The additional rule added below covers that gap with
+quality="fair".  No existing threshold values were changed.
+"""
 
 
 import numpy as np
@@ -88,12 +97,28 @@ def _build_control_system():
             blur["medium"] & contrast["high"] & snr["high"],
             quality["good"],
         ),
+        # Coverage rule for blur=high, contrast=high, snr=medium.
+        # Without this, skfuzzy raises KeyError because no existing rule
+        # fires its consequent for that combination.  fair is the
+        # conservative mid-range choice; no threshold values are changed.
+        ctrl.Rule(
+            blur["high"] & contrast["high"] & snr["medium"],
+            quality["fair"],
+        ),
     ]
 
     return ctrl.ControlSystem(rules), blur, contrast, snr
 
 
 _CONTROL_SYSTEM, _BLUR, _CONTRAST, _SNR = _build_control_system()
+
+
+class FuzzyInferenceError(RuntimeError):
+    """Raised when fuzzy inference produces no valid quality output.
+
+    This can occur when the input combination activates no rule consequent.
+    Callers should treat this as an assessment error rather than a system crash.
+    """
 
 
 def analyze_image_fuzzy(img: np.ndarray) -> dict:
@@ -127,9 +152,19 @@ def analyze_image_fuzzy(img: np.ndarray) -> dict:
     simulation.input["blur"] = blur_input
     simulation.input["contrast"] = contrast_input
     simulation.input["snr"] = snr_input
-    simulation.compute()
 
-    score = int(round(float(np.clip(simulation.output["quality"], 0, 100))))
+    try:
+        simulation.compute()
+        quality_output = simulation.output["quality"]
+    except KeyError as exc:
+        raise FuzzyInferenceError(
+            f"Fuzzy inference produced no output for inputs "
+            f"blur={blur_input}, contrast={contrast_input}, snr={snr_input}. "
+            "The rule base does not cover this input combination. "
+            f"Original error: {exc!r}"
+        ) from exc
+
+    score = int(round(float(np.clip(quality_output, 0, 100))))
 
     if score >= 75:
         state = "ACCEPT"
