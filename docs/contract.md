@@ -1,14 +1,14 @@
-\# Inter-Module Communication Contract
+# Inter-Module Communication Contract (Legacy v1 Specification)
 
+> **Important Contract Evolution Note (Phase 1):**
+> This document specifies the **legacy v1** contract shape.
+> For the approved Phase 1 contract with strictly typed integer severities (`severity_0_100`),
+> canonical v2 labels (`low_snr` instead of legacy `high_noise`), and separate `metrics_raw` tracing,
+> see [docs/contract_v2_draft.md](contract_v2_draft.md).
+> Downstream components must not confuse the legacy v1 float metrics with v2 calibrated integer severities.
 
-
-This is the single source of truth for the JSON shape passed between
-
+This document describes the original baseline JSON shape passed between
 CV+Fuzzy Engine → Backend → Frontend (and → LLM prompt builder).
-
-
-
-\*\*All 3 members must produce/consume exactly this shape.\*\*
 
 
 
@@ -101,4 +101,3 @@ suspend respiration for the next capture attempt.
 \- Any change to this contract must be discussed by all 3 members before merging.
 
 \- Last updated: Week 1, Day 5 (per PRD schedule)
-
