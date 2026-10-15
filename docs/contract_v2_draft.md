@@ -1,7 +1,7 @@
-# M2/M1/M3 Contract v2 — Draft for Review
+# M2/M1/M3 Contract v2 — Specification (Phase 1 Approved)
 
-**Status: DRAFT — calibration provisional, not approved for production.**
-**Baseline:** merged `develop` commit `8427b0c` (Day 14 blur-membership calibration).
+**Status: APPROVED (Phase 1 Contract Alignment) — calibration provisional, not clinically validated.**
+**Baseline:** merged `develop` commit `8427b0c` (Day 14 blur-membership calibration) + Phase 0 hardening.
 **Purpose:** define one strict JSON contract between M2 and downstream M1/M3 components.
 
 ## 1. Required success payload
@@ -21,13 +21,13 @@
     "noise": "finite"
   },
   "metrics": {
-    "blur": 0.0,
-    "contrast": 0.0,
-    "noise": 80.8
+    "blur": 0,
+    "contrast": 0,
+    "noise": 81
   },
   "fuzzy_score": 68,
   "state": "BORDERLINE",
-  "dominant_defect": "sensor_noise"
+  "dominant_defect": "low_snr"
 }
 ```
 
@@ -39,10 +39,10 @@ Top-level required keys are exactly:
 - `metrics_scale`: literal `"severity_0_100"`.
 - `metrics_raw`: object with exactly `blur`, `contrast`, `noise`.
 - `metrics_raw_status`: object with exactly `blur`, `contrast`, `noise`.
-- `metrics`: object with exactly `blur`, `contrast`, `noise`, each a finite numeric severity in `[0, 100]`.
+- `metrics`: object with exactly `blur`, `contrast`, `noise`, each an integer severity in `[0, 100]` (booleans and floats rejected).
 - `fuzzy_score`: integer (not boolean) in `[0, 100]`; higher means better overall fuzzy quality.
 - `state`: `ACCEPT`, `BORDERLINE`, or `REJECT`, consistent with the score thresholds below.
-- `dominant_defect`: `motion_blur`, `low_contrast`, `high_contrast`, `sensor_noise`, or `none`.
+- `dominant_defect`: `motion_blur`, `low_contrast`, `high_contrast`, `low_snr`, or `none`.
 
 ## 2. Raw metric definitions and statuses
 
@@ -55,13 +55,16 @@ Top-level required keys are exactly:
 - `finite`: the raw value must be a finite, non-negative JSON number.
 - `positive_infinity`: permitted only for `noise`, and its `metrics_raw.noise` value must be JSON `null`.
 
-A `null` raw value is valid only for `noise` with status `positive_infinity`. This status may be used only when the source image has zero intensity standard deviation and a strictly positive mean. Zero mean plus zero standard deviation is undefined `0/0` SNR and must produce a structured error, not a success payload. NaN, negative infinity, missing keys, negative raw values, unknown statuses, and mismatched status/value pairs must fail. Never serialize NaN or infinity; use strict JSON serialization (`allow_nan=False`).
+A `null` raw value is valid only for `noise` with status `positive_infinity`. This status may be used only when the source image has zero intensity standard deviation and a strictly positive mean. Zero mean plus zero standard deviation is undefined `0/0` SNR and must produce a structured error (`UNDEFINED_SNR`), not a success payload. NaN, negative infinity, missing keys, negative raw values, unknown statuses, and mismatched status/value pairs must fail. Never serialize NaN or infinity; use strict JSON serialization (`allow_nan=False`).
 
-Calibrated severity for legitimate positive-infinite SNR is `0.0`; its raw JSON value remains `null`, status remains `positive_infinity`.
+Calibrated severity for legitimate positive-infinite SNR is integer `0`; its raw JSON value remains `null`, status remains `positive_infinity`.
 
-## 3. Provisional raw-to-severity calibration
+## 3. Provisional raw-to-severity calibration and rounding
 
-All calibrated metric values have the direction **0 = minimal/no severity; 100 = maximum severity**. These are provisional engineering anchors, not clinically validated thresholds. Raw metrics are retained unmodified; clipping occurs only inside conversion formulas.
+All calibrated metric values have the direction **0 = minimal/no severity; 100 = maximum severity**. These are provisional engineering anchors, not clinically validated thresholds. Raw metrics are retained unmodified in `metrics_raw`.
+
+**One-time half-even rounding rule:**
+Each derived directional severity is clamped to `[0.0, 100.0]`, then rounded once using Python's standard half-even convention (`int(round(clamped))`). Consumers must not re-round published severity integers.
 
 ### 3.1 Blur
 
@@ -69,23 +72,7 @@ For finite non-negative raw Laplacian variance `v`:
 
 `blur_severity = 100 * clip(1 - log1p(v) / log1p(110), 0, 1)`
 
-The reference variance `110` is explicitly **provisional**. It is motivated by the current fuzzy high-membership shoulder, not evidence of a validated universal cutoff. Values at or above 110 map to severity 0. Approximate anchors:
-
-| Raw variance | Severity |
-|---:|---:|
-| 0 | 100.0 |
-| 5 | 62.0 |
-| 20 | 35.4 |
-| 50 | 16.5 |
-| 110 or above | 0.0 |
-
-The current merged membership definitions, verified from `8427b0c`, are:
-
-- low: `trapmf([0, 0, 5, 50])`
-- medium: `trimf([20, 60, 110])`
-- high: `trapmf([80, 110, 25000, 25000])`
-
-The universe sampling also changed in `8427b0c` to a unique concatenation of 401 samples from 0–200 and 500 samples from 200–25000. The severity formula and fuzzy memberships are not equivalent functions. Do not claim calibration alignment merely because the formula's cap equals 110; evaluate transition values and labeled data.
+The variance cap 110 is provisional. Values $\ge 110$ map to severity 0.
 
 ### 3.2 Noise / linear SNR
 
@@ -93,46 +80,58 @@ For finite, non-negative linear SNR `r`:
 
 `noise_severity = 100 * clip(1 - r / 10, 0, 1)`
 
-The provisional linear anchors are `r=0 -> 100`, `1.5 -> 85`, `2.5 -> 75`, `4 -> 60`, `7 -> 30`, and `10 or above -> 0`. Positive infinity maps to `0`. The raw SNR is dimensionless, not dB. This formula is a candidate only; clean-versus-noisy separation must be reported over all labeled examples before the calibration can be approved. Since the formula is monotone in raw SNR, changing only the severity curve can stretch scores but cannot improve the ranking of images.
+Positive infinity maps to `0`. Dimensionless linear SNR, not dB.
 
 ### 3.3 Contrast
 
-Raw contrast `c` is standard deviation in 8-bit grayscale-intensity levels. The proposed optimal band `[38, 60]` and ramps are **provisional**:
+Raw contrast `c` standard deviation in 8-bit grayscale:
 
 `low_contrast_severity = 100 * clip((38 - c) / 18, 0, 1)`
 
 `high_contrast_severity = 100 * clip((c - 60) / 20, 0, 1)`
 
-`contrast_severity = max(low_contrast_severity, high_contrast_severity)`
+The published contrast severity is the maximum of the once-rounded directional candidates:
 
-Lower-ramp anchors: `c <= 20 -> 100`, `c=29 -> 50`, `c >= 38 -> 0`. Upper-ramp anchors: `c <= 60 -> 0`, `c=70 -> 50`, `c >= 80 -> 100`. Units are grayscale-intensity levels. Conversion uses the raw measurement; the formulas naturally clip outside the anchor intervals.
+`metrics.contrast = max(round_half_even(low_contrast_severity), round_half_even(high_contrast_severity))`
 
-**Production gate:** current fuzzy rules reward high contrast in some good-quality rules. Therefore the upper ramp must not silently activate `high_contrast` in successful production output until fuzzy rules, trigger, and tests have been updated. If high-contrast severity is tied for or exceeds all other directional defect severities while the trigger is disabled, return a structured consistency/calibration error instead of a successful assessment with a misleading label. The schema may list `high_contrast`, but this draft keeps the production trigger disabled.
+No separate `high_contrast` field is added to the schema.
+
+**Production gate:** High contrast trigger remains disabled in production. If the rounded high-contrast candidate is positive and ties or exceeds the largest enabled candidate, a structured error (`DISABLED_HIGH_CONTRAST_TRIGGER`) is raised instead of returning a success payload. If positive but strictly lower than the winning enabled candidate, the enabled winner is selected.
 
 ## 4. Labels, score/state and dominant-defect rules
 
-Canonical labels: `motion_blur`, `low_contrast`, `high_contrast`, `sensor_noise`, `none`. M2 v2 output uses `sensor_noise`, not the legacy `high_noise`. This is a contract category for the noise-related quality flag; it does not prove physical sensor causation.
+Canonical v2 labels: `motion_blur`, `low_contrast`, `high_contrast`, `low_snr`, `none`.
+`low_snr` is the canonical external label; downstream LLM adapter explicitly maps this to model vocabulary `sensor_noise`. Legacy label `high_noise` and nested `sensor_noise` are rejected.
 
 State is determined only by integer `fuzzy_score`:
 
-- `ACCEPT`: score `>= 75`
-- `BORDERLINE`: `45 <= score < 75`
-- `REJECT`: score `< 45`
+- `ACCEPT`: score $\ge 75$
+- `BORDERLINE`: $45 \le \text{score} < 75$
+- `REJECT`: score $< 45$
 
-If a source M2 state is supplied, it must equal the state derived from the score. A mismatch is an error.
+If a source M2 state is supplied, it must equal the state derived from the score. A mismatch raises `CONSISTENCY_ERROR`.
 
-Dominant defect is selected from directional severities: blur, low contrast, high contrast, and noise. A deterministic tie priority must be kept in code and tests. `none` is allowed only when all severities are zero and state is `ACCEPT`. If all severities are zero while state is `BORDERLINE` or `REJECT`, report an internal-consistency error. Do not fabricate labels. If a high-contrast trigger is disabled and high contrast would win/tie the dominant selection, do not emit a success payload.
+Dominant defect is selected using the once-rounded directional severity integers, with deterministic enabled tie priority:
 
-Any missing required raw metric, undefined measurement, invalid severity, invalid score/state, unsupported winning trigger, or mismatch must fail assessment and must not be sent to M1 as a successful result.
+$$\text{motion\_blur} > \text{low\_contrast} > \text{low\_snr}$$
 
-## 5. Evidence needed before calibration freeze
+`none` is required and valid only when all directional severities are zero and state is `ACCEPT`. If all severities are zero while state is `BORDERLINE` or `REJECT`, raise `CONSISTENCY_ERROR`.
 
-The proposed numeric anchors are **not frozen** until the PR contains:
+Assessment errors are kept separate from the successful v2 payload; the success schema contains no error or status fields.
 
-1. Per-class counts, distributions, medians and interquartile ranges for all 100 labeled gold-standard images, plus the clean source reference.
-2. Noise-vs-blur/contrast separation, including a ranking measure such as AUC and a clear explanation of its positive class/score direction.
-3. Explicit analysis of class overlap and limitations of the SNR proxy.
-4. Tests for exact anchors, monotonicity, clipping, degenerate inputs, strict JSON, labels, state boundaries and consistency errors.
-5. Real fixtures generated by the current M2 implementation on the actual DICOM source and labeled PNGs.
+## 5. Structured error codes
 
-Synthetic degradation results are useful engineering evidence but are not clinical validation.
+`ContractV2Error` provides machine-readable error codes:
+- `UNDEFINED_SNR`: 0/0 intensity mean and standard deviation.
+- `DISABLED_HIGH_CONTRAST_TRIGGER`: High contrast candidate tied or exceeded enabled candidates while trigger is disabled.
+- `CONSISTENCY_ERROR`: All-zero severity with non-ACCEPT state, state/score mismatch, or label/severity mismatch.
+- `INVALID_SCHEMA`: Type, key, or value-range violation.
+
+## 6. Evidence needed before calibration freeze
+
+The proposed numeric anchors are **not frozen** until:
+1. Per-class counts, distributions, medians and IQRs for all labeled gold-standard images, plus clean source reference.
+2. Noise-vs-blur/contrast separation (e.g. AUC with documented direction).
+3. Explicit analysis of class overlap and SNR proxy limitations.
+4. Exploratory held-out reporting floor: $\ge 20$ independent source-image groups per state/label cell in any reported performance claim.
+5. Real fixtures generated on actual DICOM sources and labeled PNGs.

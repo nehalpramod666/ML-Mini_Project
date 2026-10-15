@@ -28,6 +28,8 @@ import threading
 from pathlib import Path
 from typing import Iterator
 
+from cv_fuzzy.v2_contract import ContractV2Error, validate_v2_payload
+
 logger = logging.getLogger(__name__)
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -61,13 +63,28 @@ TRAINING_DEFECTS = {
     "none",
 }
 
-# Labels currently emitted by M2's fuzzy engine.
+# Canonical labels defined for the v2 contract.
+CANONICAL_V2_DEFECTS = {
+    "motion_blur",
+    "low_contrast",
+    "high_contrast",
+    "low_snr",
+    "none",
+}
+
+# Labels currently emitted by legacy M2 fuzzy engine.
 M2_DEFECTS = {
     "motion_blur",
     "low_contrast",
     "high_noise",
     "none",
 }
+
+SNR_CONTEXTUAL_INSTRUCTION = (
+    "Note: The defect category 'sensor_noise' reflects a low signal-to-noise ratio "
+    "(SNR) measurement or proxy, not confirmed physical sensor hardware malfunction. "
+    "Describe the issue neutrally as an SNR or noise-related quality observation."
+)
 
 _llm = None
 _load_lock = threading.Lock()
@@ -158,21 +175,35 @@ def _finite_number(value, field: str) -> float:
     return number
 
 
+def _validate_severity_int(value, field: str) -> int:
+    """Accept only integer severities in [0, 100]; reject booleans and floats."""
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise ContractError(f"{field} must be an integer; got {value!r}")
+
+    if not 0 <= value <= 100:
+        raise ContractError(f"{field}={value} outside calibrated [0, 100] range")
+
+    return value
+
+
 def to_llm_input(contract: dict) -> dict:
     """
     Validate an input and return the exact flat shape used during training.
 
     Nested version-2 contracts must explicitly declare calibrated
-    severity_0_100 scores. Raw M2 measurements are never passed directly
-    to the LLM as if they were calibrated scores.
+    severity_0_100 scores as integers. Raw M2 measurements are never passed
+    directly to the LLM as if they were calibrated scores.
 
-    The high_noise -> sensor_noise mapping remains blocked pending team
-    agreement on canonical labels.
+    Phase 1 Adapter:
+    - Canonical v2 label 'low_snr' is explicitly mapped to the model's training
+      vocabulary token 'sensor_noise'.
+    - 'sensor_noise' is rejected as a canonical label in nested v2 payloads.
+    - Legacy 'high_noise' is strictly rejected.
     """
     if not isinstance(contract, dict):
         raise ContractError("Input must be a JSON object")
 
-    if "metrics" in contract:
+    if "metrics" in contract or "metrics_raw" in contract or "contract_version" in contract or "metrics_scale" in contract:
         # Reject legacy/raw nested contracts before interpreting metric values.
         if contract.get("metrics_scale") != SUPPORTED_SCALE:
             raise ContractError(
@@ -181,55 +212,30 @@ def to_llm_input(contract: dict) -> dict:
                 "Raw metrics must be calibrated by the CV/fuzzy engine, not here."
             )
 
-        if contract.get("contract_version") != 2:
-            raise ContractError("Calibrated nested input requires contract_version=2")
-
-        raw_metrics = contract.get("metrics_raw")
-        if not isinstance(raw_metrics, dict):
-            raise ContractError("Version-2 contract requires a metrics_raw object")
-
-        # Raw metrics are retained for traceability, never sent to the model.
-        # Use JSON null for a non-finite raw value before serialization.
-        for field in ("blur", "contrast", "noise"):
-            if field not in raw_metrics:
-                raise ContractError(f"Missing raw metric: metrics_raw.{field}")
-
-            raw_value = raw_metrics[field]
-            if raw_value is not None:
-                finite_raw = _finite_number(
-                    raw_value, f"metrics_raw.{field}"
-                )
-                if finite_raw < 0:
-                    raise ContractError(
-                        f"metrics_raw.{field} cannot be negative"
-                    )
-
-        metrics = contract["metrics"]
-        if not isinstance(metrics, dict):
-            raise ContractError("'metrics' must contain calibrated scores")
+        raw_defect = contract.get("dominant_defect")
+        if raw_defect == "sensor_noise":
+            raise ContractError(
+                "Nested v2 contract must use canonical label 'low_snr', not internal training label 'sensor_noise'"
+            )
+        if raw_defect == "high_noise":
+            raise ContractError(
+                "Legacy label 'high_noise' has been rejected and cannot be mapped"
+            )
 
         try:
-            flat = {
-                "blur": round(_finite_number(metrics["blur"], "metrics.blur"), 1),
-                "contrast": round(
-                    _finite_number(metrics["contrast"], "metrics.contrast"), 1
-                ),
-                "noise": round(_finite_number(metrics["noise"], "metrics.noise"), 1),
-                "state": contract["state"],
-                "dominant_defect": contract["dominant_defect"],
-            }
-        except (KeyError, TypeError, AttributeError) as exc:
-            raise ContractError(
-                f"Malformed calibrated contract: {exc!r}"
-            ) from exc
+            validate_v2_payload(contract)
+        except ContractV2Error as exc:
+            raise ContractError(f"Invalid v2 contract payload: {exc}") from exc
 
-        fuzzy_score = contract.get("fuzzy_score")
-        if (
-            isinstance(fuzzy_score, bool)
-            or not isinstance(fuzzy_score, int)
-            or not 0 <= fuzzy_score <= 100
-        ):
-            raise ContractError("fuzzy_score must be an integer from 0 to 100")
+        adapted_defect = "sensor_noise" if raw_defect == "low_snr" else raw_defect
+        metrics = contract["metrics"]
+        flat = {
+            "blur": metrics["blur"],
+            "contrast": metrics["contrast"],
+            "noise": metrics["noise"],
+            "state": contract["state"],
+            "dominant_defect": adapted_defect,
+        }
 
     else:
         # Existing flat input used by training/evaluation scripts.
@@ -278,13 +284,17 @@ def to_llm_input(contract: dict) -> dict:
 
 def _messages(flat: dict) -> list:
     """Build chat messages; the GGUF's stored chat template formats them."""
+    system_content = SYSTEM_PROMPT
+    if flat.get("dominant_defect") == "sensor_noise":
+        system_content = f"{SYSTEM_PROMPT}\n\n{SNR_CONTEXTUAL_INSTRUCTION}"
     return [
-        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": system_content},
         {
             "role": "user",
             "content": json.dumps(flat, allow_nan=False),
         },
     ]
+
 
 
 def generate_report(contract: dict) -> str:
