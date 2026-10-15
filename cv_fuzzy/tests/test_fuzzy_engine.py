@@ -185,3 +185,44 @@ def test_random_images_do_not_raise_key_error(seed):
 def test_fuzzy_inference_error_is_importable():
     """FuzzyInferenceError must be accessible so callers can catch it distinctly."""
     assert issubclass(FuzzyInferenceError, RuntimeError)
+
+
+def test_analyze_image_fuzzy_raises_fuzzy_inference_error_when_quality_unavailable(monkeypatch):
+    """When fuzzy inference produces no 'quality' output (e.g. uncovered rule combination),
+    analyze_image_fuzzy() must raise FuzzyInferenceError rather than leaking a raw KeyError.
+
+    Uses pytest monkeypatching to simulate a missing quality output deterministically,
+    without altering production rules or depending on an uncovered combination.
+    Passage of this test verifies exception-handling mechanics and does NOT imply
+    calibration or clinical validity.
+    """
+    class FakeSimulationMissingQuality:
+        def __init__(self, *args, **kwargs):
+            self.input = {}
+            self.output = {}  # "quality" key is omitted
+
+        def compute(self):
+            # Compute runs cleanly, but produces no "quality" output
+            pass
+
+    import cv_fuzzy.fuzzy_engine as fe
+    monkeypatch.setattr(fe.ctrl, "ControlSystemSimulation", FakeSimulationMissingQuality)
+
+    image = np.full((32, 32), 128, dtype=np.uint8)
+
+    with pytest.raises(FuzzyInferenceError) as exc_info:
+        analyze_image_fuzzy(image)
+
+    err = exc_info.value
+    err_msg = str(err)
+
+    # Verify the exception message provides useful context about inputs and missing output
+    assert "blur=" in err_msg
+    assert "contrast=" in err_msg
+    assert "snr=" in err_msg
+    assert "quality" in err_msg
+    assert "The rule base does not cover this input combination" in err_msg
+
+    # Verify that the direct underlying cause was KeyError, not leaked raw
+    assert isinstance(err.__cause__, KeyError)
+    assert err.__cause__.args == ("quality",)

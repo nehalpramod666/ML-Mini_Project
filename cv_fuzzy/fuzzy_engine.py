@@ -153,12 +153,12 @@ def analyze_image_fuzzy(img: np.ndarray) -> dict:
     simulation.input["contrast"] = contrast_input
     simulation.input["snr"] = snr_input
 
+    simulation.compute()
     try:
-        simulation.compute()
         quality_output = simulation.output["quality"]
     except KeyError as exc:
         raise FuzzyInferenceError(
-            f"Fuzzy inference produced no output for inputs "
+            f"Fuzzy inference produced no quality output for inputs "
             f"blur={blur_input}, contrast={contrast_input}, snr={snr_input}. "
             "The rule base does not cover this input combination. "
             f"Original error: {exc!r}"
