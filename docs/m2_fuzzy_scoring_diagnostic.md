@@ -40,6 +40,7 @@ The implementation in `cv_fuzzy/metrics.py` defines:
 - A zero standard deviation returns infinite SNR.
 
 The SNR proxy alone cannot distinguish sensor noise from anatomical variation or other intensity changes.
+**Clarification of blur membership:** The `blur["low"]` term represents a low raw blur metric value, not a low membership degree. Because the raw metric is the variance of the Laplacian, a low value has high membership in `blur["low"]` and indicates greater blur under this measure. Conversely, higher Laplacian variance generally indicates more high-frequency image structure and a sharper image. The interpretation remains metric-specific and is not a claim of clinical image quality.
 
 ## 4. Fuzzy rules and output semantics
 
@@ -163,3 +164,82 @@ Before any production changes:
 5. Test any approved rule or scoring changes separately against the unchanged baseline.
 
 No production code, thresholds, shared contracts, or metric definitions were changed during this diagnostic investigation.
+
+## 9. Independent reproduction
+
+The following PowerShell command runs the existing fuzzy engine without modifying production code. Run it from the repository root with the project's Python environment active.
+
+```powershell
+@'
+import numpy as np
+import skfuzzy as fuzz
+from skfuzzy import control as ctrl
+from cv_fuzzy import fuzzy_engine as fe
+
+
+def memberships(var, value):
+    return {
+        term: round(
+            float(fuzz.interp_membership(
+                var.universe, var[term].mf, value
+            )),
+            4,
+        )
+        for term in var.terms
+    }
+
+
+def probe(name, blur, contrast, snr):
+    print(f"\n=== {name} ===")
+    print(f"Inputs: blur={blur}, contrast={contrast}, snr={snr}")
+    print("Blur memberships:", memberships(fe._BLUR, blur))
+    print("Contrast memberships:", memberships(fe._CONTRAST, contrast))
+    print("SNR memberships:", memberships(fe._SNR, snr))
+
+    simulation = ctrl.ControlSystemSimulation(fe._CONTROL_SYSTEM)
+    simulation.input["blur"] = blur
+    simulation.input["contrast"] = contrast
+    simulation.input["snr"] = snr
+
+    try:
+        simulation.compute()
+        raw_score = float(simulation.output["quality"])
+    except Exception as exc:
+        print(f"Inference failed: {type(exc).__name__}: {exc}")
+        return
+
+    score = int(round(np.clip(raw_score, 0, 100)))
+    state = (
+        "ACCEPT" if score >= 75
+        else "BORDERLINE" if score >= 45
+        else "REJECT"
+    )
+    print(f"Raw defuzzified score: {raw_score:.4f}")
+    print(f"Rounded score: {score}")
+    print(f"State: {state}")
+
+
+probe(
+    "Clean reference",
+    108.16196905076504,
+    46.93810981929438,
+    2.035261142873869,
+)
+
+probe(
+    "Uncovered rule combination",
+    200.0,
+    70.0,
+    3.0,
+)
+'@ | python -
+```
+
+Expected findings:
+
+- **Clean reference:** raw score approximately `22.0130`, rounded score `22`, state `REJECT`.
+- **Uncovered rule combination:** the inference system cannot produce the `quality` output and reports `KeyError: 'quality'` when the script attempts to retrieve it.
+
+The script uses internal attributes of the existing fuzzy engine for diagnostic purposes; they are not presented as a public API. The input values and expected findings are those already reproduced during this investigation.
+
+These are engineering reproductions, not clinical validation. Regression tests and evaluation against independent source images remain follow-up tasks.
