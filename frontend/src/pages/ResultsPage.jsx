@@ -6,10 +6,13 @@ function ResultsPage({ result, onReset }) {
   // No result yet (e.g. page refreshed or URL typed directly): go back to upload.
   if (!result) return <Navigate to="/" replace />;
 
+  const assessment = result.assessment || result;
+  const report = result.report || "";
+
   return (
     <div className="w-full max-w-md flex flex-col items-center gap-6">
-      <ResultsPanel result={result} />
-      <StreamingReport active={true} />
+      <ResultsPanel assessment={assessment} result={result} />
+      <StreamingReport report={report} active={true} />
       <Link
         to="/"
         onClick={onReset}
