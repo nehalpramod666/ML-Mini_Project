@@ -98,6 +98,10 @@ class ContractError(ValueError):
     """Input is invalid or incompatible with the model's input schema."""
 
 
+class ModelUnavailableError(RuntimeError):
+    """Raised when the GGUF model file or inference dependency is unavailable."""
+
+
 def _prepare_runtime_dlls() -> None:
     """Make CUDA DLL directories discoverable on Windows when available."""
     if os.name != "nt":
@@ -134,7 +138,7 @@ def get_llm():
         with _load_lock:
             if _llm is None:
                 if not MODEL_PATH.is_file():
-                    raise FileNotFoundError(
+                    raise ModelUnavailableError(
                         f"GGUF model not found: {MODEL_PATH}. "
                         "Set GATEKEEPER_GGUF to the model's actual path."
                     )
@@ -144,7 +148,7 @@ def get_llm():
                 try:
                     from llama_cpp import Llama
                 except ImportError as exc:
-                    raise RuntimeError(
+                    raise ModelUnavailableError(
                         "llama-cpp-python is required for local inference."
                     ) from exc
 
