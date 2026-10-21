@@ -15,6 +15,18 @@ function extractErrorMessage(errorData, fallback) {
   return fallback;
 }
 
+const NETWORK_ERROR =
+  "Cannot reach the backend. Check that the server is running and try again.";
+
+// Wraps fetch so a stopped backend gives a readable message.
+async function request(url, options) {
+  try {
+    return await fetch(url, options);
+  } catch {
+    throw new Error(NETWORK_ERROR);
+  }
+}
+
 export async function checkHealth() {
   const res = await fetch(`${BASE_URL}/health`);
   return res.json();
@@ -24,7 +36,7 @@ export async function uploadFile(file) {
   const formData = new FormData();
   formData.append("file", file);
 
-  const res = await fetch(`${BASE_URL}/upload`, {
+  const res = await request(`${BASE_URL}/upload`, {
     method: "POST",
     body: formData,
   });
@@ -38,7 +50,7 @@ export async function uploadFile(file) {
 }
 
 export async function analyzeFile(fileId) {
-  const res = await fetch(`${BASE_URL}/analyze/${fileId}`, {
+  const res = await request(`${BASE_URL}/analyze/${fileId}`, {
     method: "POST",
   });
 

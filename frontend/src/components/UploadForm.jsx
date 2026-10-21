@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { uploadFile } from "../api/client";
+import ErrorMessage from "./ErrorMessage";
 
-function UploadForm({ onUploadSuccess }) {
+function UploadForm({ onUploadSuccess, busy = false }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [status, setStatus] = useState("idle"); // idle | uploading | error
   const [errorMessage, setErrorMessage] = useState("");
+
+  const uploading = status === "uploading";
+  const buttonLabel = uploading ? "Uploading..." : busy ? "Analyzing..." : "Upload";
 
   const handleFile = (file) => {
     if (!file) return;
@@ -17,8 +21,7 @@ function UploadForm({ onUploadSuccess }) {
   const handleDrop = (e) => {
     e.preventDefault();
     setIsDragging(false);
-    const file = e.dataTransfer.files[0];
-    handleFile(file);
+    handleFile(e.dataTransfer.files[0]);
   };
 
   const handleUpload = async () => {
@@ -66,15 +69,13 @@ function UploadForm({ onUploadSuccess }) {
 
       <button
         onClick={handleUpload}
-        disabled={!selectedFile || status === "uploading"}
+        disabled={!selectedFile || uploading || busy}
         className="bg-blue-600 hover:bg-blue-500 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-medium py-2 rounded-lg transition-colors"
       >
-        {status === "uploading" ? "Uploading..." : "Upload"}
+        {buttonLabel}
       </button>
 
-      {status === "error" && (
-        <p className="text-red-400 text-sm">{errorMessage}</p>
-      )}
+      <ErrorMessage message={status === "error" ? errorMessage : ""} />
     </div>
   );
 }
