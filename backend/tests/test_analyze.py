@@ -104,12 +104,10 @@ def test_analyze_path_traversal_returns_404(test_upload_dir):
 
 
 def test_analyze_malformed_dicom_returns_422_without_calling_llm(test_upload_dir, monkeypatch):
-    upload_res = client.post(
-        "/upload",
-        files={"file": ("corrupt.dcm", b"NOT_A_DICOM_FILE_HEADER", "application/octet-stream")},
-    )
-    assert upload_res.status_code == 200
-    file_id = upload_res.json()["file_id"]
+    # /upload now rejects non-DICOM bytes, so place the corrupt file directly
+    # in the upload folder to test how /analyze handles it.
+    file_id = "corrupt-file"
+    (test_upload_dir / f"{file_id}.dcm").write_bytes(b"NOT_A_DICOM_FILE_HEADER")
 
     mock_llm = MagicMock()
     monkeypatch.setattr("routes.analyze.generate_report", mock_llm)
@@ -120,17 +118,16 @@ def test_analyze_malformed_dicom_returns_422_without_calling_llm(test_upload_dir
     assert data["detail"]["code"] == "INVALID_DICOM"
     assert data["detail"]["message"] == "The uploaded file could not be read as a valid DICOM image."
     # Ensure sensitive internal paths or raw file header details are not leaked
-    assert "corrupt.dcm" not in response.text
+    assert "corrupt-file" not in response.text
     assert "NOT_A_DICOM" not in response.text
     mock_llm.assert_not_called()
 
-
 def test_analyze_fuzzy_inference_failure_returns_422(test_upload_dir, monkeypatch):
-    upload_res = client.post(
+    file_id = client.post(
         "/upload",
         files={"file": ("CT_small.dcm", SAMPLE_DICOM.read_bytes(), "application/octet-stream")},
     )
-    file_id = upload_res.json()["file_id"]
+    file_id = file_id.json()["file_id"]
 
     sensitive_detail = "Sensitive rule gap at C:\\hospital\\internal_config.yaml"
 
