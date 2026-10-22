@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import upload, analyze
+from routes import upload, analyze, files
 
 app = FastAPI(title="Clinical Gatekeeper API")
 
@@ -13,6 +13,7 @@ app.add_middleware(
 
 app.include_router(upload.router)
 app.include_router(analyze.router)
+app.include_router(files.router)
 
 @app.get("/health")
 def health():
