@@ -10,12 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cornerstonejs/core": "^5.13.1",
+    "@cornerstonejs/dicom-image-loader": "^5.13.1",
+    "@cornerstonejs/tools": "^5.13.1",
+    "dicom-parser": "^1.8.21",
+    "events": "^3.3.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@originjs/vite-plugin-commonjs": "^1.0.3",
     "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
