@@ -1,0 +1,347 @@
+{
+  "status": "EXPLORATORY_DAY20_SCORE_SEVERITY_ANALYSIS",
+  "input_file": "reports\\stage1_baseline_20261027\\per_image.csv",
+  "input_record_count": 100,
+  "successful_records": 100,
+  "failed_or_non_success_records": 0,
+  "overall_fuzzy_score_distribution": {
+    "n": 100,
+    "min": 17.0,
+    "median": 24.0,
+    "mean": 22.83,
+    "max": 41.0
+  },
+  "score_state_counts": {
+    "fuzzy_state": {
+      "REJECT": 100
+    },
+    "v2_state": {
+      "REJECT": 100
+    }
+  },
+  "score_agreement": {
+    "fuzzy_score_vs_v2_fuzzy_score_disagreement_count": 0
+  },
+  "by_injected_defect": {
+    "blur": {
+      "record_count": 34,
+      "score_distribution": {
+        "n": 34,
+        "min": 17.0,
+        "median": 17.0,
+        "mean": 17.0,
+        "max": 17.0
+      },
+      "fuzzy_states": {
+        "REJECT": 34
+      },
+      "v2_states": {
+        "REJECT": 34
+      },
+      "v2_dominant_defects": {
+        "low_snr": 15,
+        "motion_blur": 19
+      },
+      "severity_distributions": {
+        "v2_blur_severity": {
+          "n": 34,
+          "min": 70.0,
+          "median": 78.0,
+          "mean": 74.79411764705883,
+          "max": 79.0
+        },
+        "v2_contrast_severity": {
+          "n": 34,
+          "min": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "v2_noise_severity": {
+          "n": 34,
+          "min": 77.0,
+          "median": 78.0,
+          "mean": 78.11764705882354,
+          "max": 79.0
+        }
+      }
+    },
+    "contrast": {
+      "record_count": 33,
+      "score_distribution": {
+        "n": 33,
+        "min": 17.0,
+        "median": 25.0,
+        "mean": 25.242424242424242,
+        "max": 41.0
+      },
+      "fuzzy_states": {
+        "REJECT": 33
+      },
+      "v2_states": {
+        "REJECT": 33
+      },
+      "v2_dominant_defects": {
+        "low_contrast": 25,
+        "low_snr": 8
+      },
+      "severity_distributions": {
+        "v2_blur_severity": {
+          "n": 33,
+          "min": 15.0,
+          "median": 28.0,
+          "mean": 33.484848484848484,
+          "max": 47.0
+        },
+        "v2_contrast_severity": {
+          "n": 33,
+          "min": 29.0,
+          "median": 81.0,
+          "mean": 77.03030303030303,
+          "max": 100.0
+        },
+        "v2_noise_severity": {
+          "n": 33,
+          "min": 33.0,
+          "median": 60.0,
+          "mean": 50.39393939393939,
+          "max": 71.0
+        }
+      }
+    },
+    "noise": {
+      "record_count": 33,
+      "score_distribution": {
+        "n": 33,
+        "min": 24.0,
+        "median": 28.0,
+        "mean": 26.424242424242426,
+        "max": 29.0
+      },
+      "fuzzy_states": {
+        "REJECT": 33
+      },
+      "v2_states": {
+        "REJECT": 33
+      },
+      "v2_dominant_defects": {
+        "low_snr": 33
+      },
+      "severity_distributions": {
+        "v2_blur_severity": {
+          "n": 33,
+          "min": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "v2_contrast_severity": {
+          "n": 33,
+          "min": 0.0,
+          "median": 0.0,
+          "mean": 0.0,
+          "max": 0.0
+        },
+        "v2_noise_severity": {
+          "n": 33,
+          "min": 80.0,
+          "median": 81.0,
+          "mean": 81.12121212121212,
+          "max": 82.0
+        }
+      }
+    }
+  },
+  "correlation_method": "Pearson correlation and Spearman rank correlation with average ranks for ties. Correlations are calculated only on finite paired values.",
+  "correlations": [
+    {
+      "group": "overall",
+      "score_field": "fuzzy_score",
+      "severity_field": "v2_blur_severity",
+      "n_pairs": 100,
+      "pearson_r": -0.7227403085194233,
+      "spearman_rho": -0.791749721543838,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "overall",
+      "score_field": "fuzzy_score",
+      "severity_field": "v2_contrast_severity",
+      "n_pairs": 100,
+      "pearson_r": -0.09904196403701936,
+      "spearman_rho": 0.008198509645594225,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "overall",
+      "score_field": "fuzzy_score",
+      "severity_field": "v2_noise_severity",
+      "n_pairs": 100,
+      "pearson_r": 0.2381653046878775,
+      "spearman_rho": 0.27806558885211236,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "overall",
+      "score_field": "fuzzy_score",
+      "severity_field": "maximum_severity",
+      "n_pairs": 100,
+      "pearson_r": -0.4898615670984721,
+      "spearman_rho": -0.07127055372955661,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "overall",
+      "score_field": "fuzzy_score",
+      "severity_field": "sum_severity",
+      "n_pairs": 100,
+      "pearson_r": -0.5879282704357818,
+      "spearman_rho": -0.6310298312764958,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "blur",
+      "score_field": "fuzzy_score",
+      "severity_field": "v2_blur_severity",
+      "n_pairs": 34,
+      "pearson_r": null,
+      "spearman_rho": null,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "blur",
+      "score_field": "fuzzy_score",
+      "severity_field": "v2_contrast_severity",
+      "n_pairs": 34,
+      "pearson_r": null,
+      "spearman_rho": null,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "blur",
+      "score_field": "fuzzy_score",
+      "severity_field": "v2_noise_severity",
+      "n_pairs": 34,
+      "pearson_r": null,
+      "spearman_rho": null,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "blur",
+      "score_field": "fuzzy_score",
+      "severity_field": "maximum_severity",
+      "n_pairs": 34,
+      "pearson_r": null,
+      "spearman_rho": null,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "blur",
+      "score_field": "fuzzy_score",
+      "severity_field": "sum_severity",
+      "n_pairs": 34,
+      "pearson_r": null,
+      "spearman_rho": null,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "contrast",
+      "score_field": "fuzzy_score",
+      "severity_field": "v2_blur_severity",
+      "n_pairs": 33,
+      "pearson_r": -0.9571843221819349,
+      "spearman_rho": -1.0,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "contrast",
+      "score_field": "fuzzy_score",
+      "severity_field": "v2_contrast_severity",
+      "n_pairs": 33,
+      "pearson_r": -0.9971357534984344,
+      "spearman_rho": -1.0,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "contrast",
+      "score_field": "fuzzy_score",
+      "severity_field": "v2_noise_severity",
+      "n_pairs": 33,
+      "pearson_r": 0.9156387283901894,
+      "spearman_rho": 1.0,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "contrast",
+      "score_field": "fuzzy_score",
+      "severity_field": "maximum_severity",
+      "n_pairs": 33,
+      "pearson_r": -0.9365733871011879,
+      "spearman_rho": -1.0,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "contrast",
+      "score_field": "fuzzy_score",
+      "severity_field": "sum_severity",
+      "n_pairs": 33,
+      "pearson_r": -0.9826014715823943,
+      "spearman_rho": -1.0,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "noise",
+      "score_field": "fuzzy_score",
+      "severity_field": "v2_blur_severity",
+      "n_pairs": 33,
+      "pearson_r": null,
+      "spearman_rho": null,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "noise",
+      "score_field": "fuzzy_score",
+      "severity_field": "v2_contrast_severity",
+      "n_pairs": 33,
+      "pearson_r": null,
+      "spearman_rho": null,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "noise",
+      "score_field": "fuzzy_score",
+      "severity_field": "v2_noise_severity",
+      "n_pairs": 33,
+      "pearson_r": -0.9740936812785146,
+      "spearman_rho": -1.0,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "noise",
+      "score_field": "fuzzy_score",
+      "severity_field": "maximum_severity",
+      "n_pairs": 33,
+      "pearson_r": -0.9740936812785146,
+      "spearman_rho": -1.0,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    },
+    {
+      "group": "noise",
+      "score_field": "fuzzy_score",
+      "severity_field": "sum_severity",
+      "n_pairs": 33,
+      "pearson_r": -0.9740936812785146,
+      "spearman_rho": -1.0,
+      "interpretation_note": "Descriptive association only; not evidence of causation or clinical validity."
+    }
+  ],
+  "interpretation_limits": [
+    "All Stage 1 fixtures originate from the same recorded CT source.",
+    "All images were synthetic degraded fixtures; no clean controls were identified.",
+    "The Stage 1 baseline reported REJECT for all 100 images.",
+    "Correlation is descriptive and cannot establish causation.",
+    "The existing fuzzy score uses raw image metrics; V2 severities are derived outputs and are not direct inputs to the current fuzzy score calculation.",
+    "Do not change production rules or thresholds based on this report alone.",
+    "The locked Day 18 candidate evaluation was not read or rerun."
+  ]
+}
