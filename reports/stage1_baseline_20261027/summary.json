@@ -1,0 +1,130 @@
+{
+  "status": "EXPLORATORY_BASELINE",
+  "run_timestamp_utc": "2026-10-27T17:01:53.902821+00:00",
+  "dataset": {
+    "manifest_path": "data\\gold_standard\\manifest.json",
+    "manifest_sha256": "3f7dae5dc1074eff7190b700e4eb748958e16e0f1687a7783ec216b95082cf6c",
+    "record_count": 100,
+    "defect_counts": {
+      "blur": 34,
+      "contrast": 33,
+      "noise": 33
+    },
+    "unique_manifest_sources": [
+      "cv_fuzzy\\sample_data\\CT_small.dcm"
+    ],
+    "explicit_clean_control_count": 0
+  },
+  "scoring_rules": {
+    "path": "reports\\stage1_baseline_20261027\\scoring_rules.md",
+    "sha256": "5d665b3333305f42a98fa589584673f82004249b74bb04a694a3ec30e21b698c",
+    "frozen_mapping": {
+      "blur": "motion_blur",
+      "contrast": "low_contrast",
+      "noise": "low_snr"
+    },
+    "criterion": "Exact match between predicted V2 dominant-defect label and the frozen expected label",
+    "prd_target_percent": 100.0,
+    "errors_count_as_not_isolated": true
+  },
+  "overall_isolation": {
+    "isolated": 77,
+    "total": 100,
+    "not_isolated": 23,
+    "isolation_rate_percent": 77.0
+  },
+  "isolation_by_defect": {
+    "blur": {
+      "expected_v2_label": "motion_blur",
+      "total": 34,
+      "isolated": 19,
+      "not_isolated": 15,
+      "errors": 0,
+      "isolation_rate_percent": 55.8824
+    },
+    "contrast": {
+      "expected_v2_label": "low_contrast",
+      "total": 33,
+      "isolated": 25,
+      "not_isolated": 8,
+      "errors": 0,
+      "isolation_rate_percent": 75.7576
+    },
+    "noise": {
+      "expected_v2_label": "low_snr",
+      "total": 33,
+      "isolated": 33,
+      "not_isolated": 0,
+      "errors": 0,
+      "isolation_rate_percent": 100.0
+    }
+  },
+  "processing": {
+    "metric_function_success_count": 100,
+    "fuzzy_success_count": 100,
+    "v2_payload_success_count": 100,
+    "error_count": 0,
+    "errors_by_stage": {},
+    "errors_by_code": {},
+    "direct_metrics_vs_fuzzy_metrics_mismatch_count": 0
+  },
+  "state_distribution": {
+    "legacy_fuzzy_state": {
+      "REJECT": 100
+    },
+    "v2_state": {
+      "REJECT": 100
+    }
+  },
+  "dominant_defect_distribution": {
+    "legacy_fuzzy_label": {
+      "high_noise": 33,
+      "low_contrast": 33,
+      "motion_blur": 34
+    },
+    "v2_label_successes_only": {
+      "low_contrast": 25,
+      "low_snr": 56,
+      "motion_blur": 19
+    }
+  },
+  "confusion_matrix": {
+    "rows": "expected V2 defect label",
+    "columns": "predicted V2 defect label; ERROR denotes a failed result",
+    "column_labels": [
+      "ERROR",
+      "low_contrast",
+      "low_snr",
+      "motion_blur"
+    ],
+    "counts": {
+      "motion_blur": {
+        "ERROR": 0,
+        "low_contrast": 0,
+        "low_snr": 15,
+        "motion_blur": 19
+      },
+      "low_contrast": {
+        "ERROR": 0,
+        "low_contrast": 25,
+        "low_snr": 8,
+        "motion_blur": 0
+      },
+      "low_snr": {
+        "ERROR": 0,
+        "low_contrast": 0,
+        "low_snr": 33,
+        "motion_blur": 0
+      }
+    }
+  },
+  "errors": [],
+  "limitations": [
+    "Exploratory synthetic-fixture baseline; not clinical validation.",
+    "All fixtures come from the same recorded source image.",
+    "The manifest has no explicitly marked clean/original controls.",
+    "Isolation is measured against the predeclared mapping, not expert labels.",
+    "The production high-contrast trigger remains disabled.",
+    "This script does not change or rerun the locked Day 18 evaluation."
+  ]
+}

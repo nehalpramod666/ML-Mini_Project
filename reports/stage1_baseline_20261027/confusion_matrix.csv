@@ -1,0 +1,4 @@
+﻿expected_v2_label,ERROR,low_contrast,low_snr,motion_blur
+motion_blur,0,0,15,19
+low_contrast,0,25,8,0
+low_snr,0,0,33,0
