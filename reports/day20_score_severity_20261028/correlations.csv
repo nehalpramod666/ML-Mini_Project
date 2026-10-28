@@ -1,0 +1,21 @@
+﻿group,score_field,severity_field,n_pairs,pearson_r,spearman_rho,interpretation_note
+overall,fuzzy_score,v2_blur_severity,100,-0.7227403085194233,-0.791749721543838,Descriptive association only; not evidence of causation or clinical validity.
+overall,fuzzy_score,v2_contrast_severity,100,-0.09904196403701936,0.008198509645594225,Descriptive association only; not evidence of causation or clinical validity.
+overall,fuzzy_score,v2_noise_severity,100,0.2381653046878775,0.27806558885211236,Descriptive association only; not evidence of causation or clinical validity.
+overall,fuzzy_score,maximum_severity,100,-0.4898615670984721,-0.07127055372955661,Descriptive association only; not evidence of causation or clinical validity.
+overall,fuzzy_score,sum_severity,100,-0.5879282704357818,-0.6310298312764958,Descriptive association only; not evidence of causation or clinical validity.
+blur,fuzzy_score,v2_blur_severity,34,,,Descriptive association only; not evidence of causation or clinical validity.
+blur,fuzzy_score,v2_contrast_severity,34,,,Descriptive association only; not evidence of causation or clinical validity.
+blur,fuzzy_score,v2_noise_severity,34,,,Descriptive association only; not evidence of causation or clinical validity.
+blur,fuzzy_score,maximum_severity,34,,,Descriptive association only; not evidence of causation or clinical validity.
+blur,fuzzy_score,sum_severity,34,,,Descriptive association only; not evidence of causation or clinical validity.
+contrast,fuzzy_score,v2_blur_severity,33,-0.9571843221819349,-1.0,Descriptive association only; not evidence of causation or clinical validity.
+contrast,fuzzy_score,v2_contrast_severity,33,-0.9971357534984344,-1.0,Descriptive association only; not evidence of causation or clinical validity.
+contrast,fuzzy_score,v2_noise_severity,33,0.9156387283901894,1.0,Descriptive association only; not evidence of causation or clinical validity.
+contrast,fuzzy_score,maximum_severity,33,-0.9365733871011879,-1.0,Descriptive association only; not evidence of causation or clinical validity.
+contrast,fuzzy_score,sum_severity,33,-0.9826014715823943,-1.0,Descriptive association only; not evidence of causation or clinical validity.
+noise,fuzzy_score,v2_blur_severity,33,,,Descriptive association only; not evidence of causation or clinical validity.
+noise,fuzzy_score,v2_contrast_severity,33,,,Descriptive association only; not evidence of causation or clinical validity.
+noise,fuzzy_score,v2_noise_severity,33,-0.9740936812785146,-1.0,Descriptive association only; not evidence of causation or clinical validity.
+noise,fuzzy_score,maximum_severity,33,-0.9740936812785146,-1.0,Descriptive association only; not evidence of causation or clinical validity.
+noise,fuzzy_score,sum_severity,33,-0.9740936812785146,-1.0,Descriptive association only; not evidence of causation or clinical validity.
