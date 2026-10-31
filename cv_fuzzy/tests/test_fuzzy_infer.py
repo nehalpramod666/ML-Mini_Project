@@ -126,3 +126,15 @@ def test_fuzzy_infer_preserves_fuzzy_inference_error(monkeypatch):
         module.fuzzy_infer(image)
 
     assert exc_info.value is expected_error
+
+@pytest.mark.parametrize(
+    "bad_value",
+    [np.nan, np.inf, -np.inf],
+    ids=["nan", "positive-infinity", "negative-infinity"],
+)
+def test_fuzzy_infer_rejects_non_finite_pixel_values(bad_value):
+    image = np.zeros((32, 32), dtype=np.float64)
+    image[0, 0] = bad_value
+
+    with pytest.raises(FuzzyInferenceError, match="finite pixel values"):
+        fuzzy_infer(image)

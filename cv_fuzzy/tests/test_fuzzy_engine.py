@@ -226,3 +226,15 @@ def test_analyze_image_fuzzy_raises_fuzzy_inference_error_when_quality_unavailab
     # Verify that the direct underlying cause was KeyError, not leaked raw
     assert isinstance(err.__cause__, KeyError)
     assert err.__cause__.args == ("quality",)
+
+@pytest.mark.parametrize(
+    "bad_value",
+    [np.nan, np.inf, -np.inf],
+    ids=["nan", "positive-infinity", "negative-infinity"],
+)
+def test_rejects_non_finite_pixel_values(bad_value):
+    image = np.zeros((32, 32), dtype=np.float64)
+    image[0, 0] = bad_value
+
+    with pytest.raises(FuzzyInferenceError, match="finite pixel values"):
+        analyze_image_fuzzy(image)
