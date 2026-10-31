@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { checkHealth } from "./api/client";
 import UploadPage from "./pages/UploadPage";
 import ResultsPage from "./pages/ResultsPage";
-import { lazy, Suspense } from "react";
+
+// Loaded on demand so a viewer or library failure cannot break the whole app.
 const ViewerTestPage = lazy(() => import("./pages/ViewerTestPage"));
+
 function App() {
   const [status, setStatus] = useState("checking...");
   const [analysisResult, setAnalysisResult] = useState(null);
@@ -22,19 +24,29 @@ function App() {
         <p className="text-sm text-gray-400">Backend status: {status}</p>
 
         <Routes>
-          <Route path="/viewer-test/:fileId" element={<ViewerTestPage />} />
           <Route
             path="/"
             element={<UploadPage onResult={setAnalysisResult} />}
           />
-         <Route
-  path="/viewer-test/:fileId"
-  element={
-    <Suspense fallback={<p className="text-gray-400">Loading viewer...</p>}>
-      <ViewerTestPage />
-    </Suspense>
-  }
-/>
+          <Route
+            path="/results"
+            element={
+              <ResultsPage
+                result={analysisResult}
+                onReset={() => setAnalysisResult(null)}
+              />
+            }
+          />
+          <Route
+            path="/viewer-test/:fileId"
+            element={
+              <Suspense
+                fallback={<p className="text-gray-400">Loading viewer...</p>}
+              >
+                <ViewerTestPage />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
