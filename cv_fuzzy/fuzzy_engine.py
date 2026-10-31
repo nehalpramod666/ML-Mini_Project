@@ -114,10 +114,11 @@ _CONTROL_SYSTEM, _BLUR, _CONTRAST, _SNR = _build_control_system()
 
 
 class FuzzyInferenceError(RuntimeError):
-    """Raised when fuzzy inference produces no valid quality output.
+    """Raised when fuzzy inference cannot safely assess an image.
 
-    This can occur when the input combination activates no rule consequent.
-    Callers should treat this as an assessment error rather than a system crash.
+    This includes non-finite pixel values and cases where no fuzzy rule
+    consequent produces a quality result. Callers should treat this as an
+    assessment error rather than a system crash.
     """
 
 
@@ -131,6 +132,10 @@ def analyze_image_fuzzy(img: np.ndarray) -> dict:
         )
     if img.size == 0:
         raise ValueError("img must not be empty")
+    if not np.isfinite(img).all():
+        raise FuzzyInferenceError(
+            "img must contain only finite pixel values"
+        )
 
     analysis = analyze_image(img)
     metrics = analysis["metrics"]
