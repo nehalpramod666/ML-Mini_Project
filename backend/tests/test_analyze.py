@@ -5,7 +5,7 @@ import os
 import sys
 from pathlib import Path
 from unittest.mock import MagicMock
-
+import numpy as np
 import pytest
 from fastapi.testclient import TestClient
 
@@ -28,7 +28,7 @@ def test_upload_dir(tmp_path, monkeypatch):
 
 
 def test_successful_dicom_analysis_real_pipeline(test_upload_dir, monkeypatch):
-    """Exercise load_dicom -> analyze_image_fuzzy -> build_v2_payload -> mocked generate_report."""
+    """Exercise load_dicom -> fuzzy_infer -> mocked generate_report."""
     assert SAMPLE_DICOM.is_file(), f"Sample DICOM not found at {SAMPLE_DICOM}"
 
     # 1. Upload the real DICOM
@@ -134,7 +134,7 @@ def test_analyze_fuzzy_inference_failure_returns_422(test_upload_dir, monkeypatc
     def mock_fuzzy_fail(image):
         raise FuzzyInferenceError(sensitive_detail)
 
-    monkeypatch.setattr("routes.analyze.analyze_image_fuzzy", mock_fuzzy_fail)
+    monkeypatch.setattr("routes.analyze.fuzzy_infer", mock_fuzzy_fail)
 
     response = client.post(f"/analyze/{file_id}")
     assert response.status_code == 422
@@ -157,7 +157,7 @@ def test_analyze_unexpected_fuzzy_failure_returns_422_assessment_failed(test_upl
     def mock_fuzzy_crash(image):
         raise ZeroDivisionError(sensitive_detail)
 
-    monkeypatch.setattr("routes.analyze.analyze_image_fuzzy", mock_fuzzy_crash)
+    monkeypatch.setattr("routes.analyze.fuzzy_infer", mock_fuzzy_crash)
 
     response = client.post(f"/analyze/{file_id}")
     assert response.status_code == 422
@@ -176,13 +176,13 @@ def test_analyze_contract_v2_error_preserves_stable_code(test_upload_dir, monkey
     file_id = upload_res.json()["file_id"]
 
     # Test DISABLED_HIGH_CONTRAST_TRIGGER
-    def mock_high_contrast_fail(m2_res, img):
+    def mock_high_contrast_fail(image):
         raise ContractV2Error(
             "High contrast triggered at internal memory 0xdeadbeef",
             code="DISABLED_HIGH_CONTRAST_TRIGGER",
         )
 
-    monkeypatch.setattr("routes.analyze.build_v2_payload", mock_high_contrast_fail)
+    monkeypatch.setattr("routes.analyze.fuzzy_infer", mock_high_contrast_fail)
     response = client.post(f"/analyze/{file_id}")
     assert response.status_code == 422
     data = response.json()
@@ -191,13 +191,13 @@ def test_analyze_contract_v2_error_preserves_stable_code(test_upload_dir, monkey
     assert "0xdeadbeef" not in response.text
 
     # Test CONSISTENCY_ERROR
-    def mock_consistency_fail(m2_res, img):
+    def mock_consistency_fail(image):
         raise ContractV2Error(
             "Detailed internal mismatch in C:\\secret\\rules.py: score=20 vs 75",
             code="CONSISTENCY_ERROR",
         )
 
-    monkeypatch.setattr("routes.analyze.build_v2_payload", mock_consistency_fail)
+    monkeypatch.setattr("routes.analyze.fuzzy_infer", mock_consistency_fail)
     response = client.post(f"/analyze/{file_id}")
     assert response.status_code == 422
     data = response.json()
@@ -264,3 +264,65 @@ def test_analyze_unexpected_report_failure_returns_500(test_upload_dir, monkeypa
     assert data["detail"]["message"] == "Failed to generate clinical report"
     assert "/opt/models" not in response.text
     assert "traceback" not in response.text
+
+def test_analyze_passes_fuzzy_infer_payload_to_report_unchanged(test_upload_dir, monkeypatch):
+    upload_res = client.post(
+        "/upload",
+        files={"file": ("CT_small.dcm", SAMPLE_DICOM.read_bytes(), "application/octet-stream")},
+    )
+    file_id = upload_res.json()["file_id"]
+
+    sentinel_payload = {"marker": "payload-from-fuzzy-infer"}
+    captured = []
+
+    monkeypatch.setattr("routes.analyze.fuzzy_infer", lambda image: sentinel_payload)
+
+    def mock_generate_report(payload):
+        captured.append(payload)
+        return "report text"
+
+    monkeypatch.setattr("routes.analyze.generate_report", mock_generate_report)
+
+    response = client.post(f"/analyze/{file_id}")
+    assert response.status_code == 200
+    assert response.json() == {"assessment": sentinel_payload, "report": "report text"}
+    assert captured == [sentinel_payload]
+
+
+def test_analyze_all_black_image_returns_undefined_snr_error(test_upload_dir, monkeypatch):
+    upload_res = client.post(
+        "/upload",
+        files={"file": ("CT_small.dcm", SAMPLE_DICOM.read_bytes(), "application/octet-stream")},
+    )
+    file_id = upload_res.json()["file_id"]
+
+    monkeypatch.setattr(
+        "routes.analyze.load_dicom",
+        lambda path: np.zeros((64, 64), dtype=np.uint8),
+    )
+    mock_llm = MagicMock()
+    monkeypatch.setattr("routes.analyze.generate_report", mock_llm)
+
+    response = client.post(f"/analyze/{file_id}")
+    assert response.status_code == 422
+    assert response.json()["detail"]["code"] == "UNDEFINED_SNR"
+    mock_llm.assert_not_called()
+
+
+def test_analyze_constant_image_response_is_valid_json(test_upload_dir, monkeypatch):
+    """A constant non-zero image has infinite SNR; the response must still serialize."""
+    upload_res = client.post(
+        "/upload",
+        files={"file": ("CT_small.dcm", SAMPLE_DICOM.read_bytes(), "application/octet-stream")},
+    )
+    file_id = upload_res.json()["file_id"]
+
+    monkeypatch.setattr(
+        "routes.analyze.load_dicom",
+        lambda path: np.full((64, 64), 100, dtype=np.uint8),
+    )
+    monkeypatch.setattr("routes.analyze.generate_report", lambda payload: "report text")
+
+    response = client.post(f"/analyze/{file_id}")
+    assert response.status_code == 200
+    assert response.json()["assessment"]["contract_version"] == 2
