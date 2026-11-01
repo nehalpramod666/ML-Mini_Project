@@ -187,7 +187,7 @@ def test_analyze_contract_v2_error_preserves_stable_code(test_upload_dir, monkey
     assert response.status_code == 422
     data = response.json()
     assert data["detail"]["code"] == "DISABLED_HIGH_CONTRAST_TRIGGER"
-    assert data["detail"]["message"] == "High-contrast defect trigger is currently disabled."
+    assert data["detail"]["message"] == "This image shows an exposure pattern the system cannot assess automatically."
     assert "0xdeadbeef" not in response.text
 
     # Test CONSISTENCY_ERROR

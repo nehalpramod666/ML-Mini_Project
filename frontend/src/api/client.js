@@ -14,7 +14,15 @@ function extractErrorMessage(errorData, fallback) {
   }
   return fallback;
 }
-
+// Builds an Error whose message is user-readable and whose `code` carries the
+// backend's stable error code (when present), so the UI can branch on it later.
+function buildApiError(errorData, fallback) {
+  const error = new Error(extractErrorMessage(errorData, fallback));
+  if (errorData && errorData.detail && typeof errorData.detail === "object") {
+    error.code = errorData.detail.code;
+  }
+  return error;
+}
 const NETWORK_ERROR =
   "Cannot reach the backend. Check that the server is running and try again.";
 
@@ -43,7 +51,7 @@ export async function uploadFile(file) {
 
   if (!res.ok) {
     const errorData = await res.json().catch(() => ({}));
-    throw new Error(extractErrorMessage(errorData, "Upload failed"));
+    throw buildApiError(errorData, "Upload failed");
   }
 
   return res.json();
@@ -56,7 +64,7 @@ export async function analyzeFile(fileId) {
 
   if (!res.ok) {
     const errorData = await res.json().catch(() => ({}));
-    throw new Error(extractErrorMessage(errorData, "Analysis failed"));
+    throw buildApiError(errorData, "Analysis failed");
   }
 
   return res.json();
