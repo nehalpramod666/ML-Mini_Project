@@ -326,3 +326,27 @@ def test_analyze_constant_image_response_is_valid_json(test_upload_dir, monkeypa
     response = client.post(f"/analyze/{file_id}")
     assert response.status_code == 200
     assert response.json()["assessment"]["contract_version"] == 2
+
+@pytest.mark.parametrize("bad_value", [np.nan, np.inf, -np.inf])
+def test_analyze_non_finite_pixels_return_fuzzy_inference_error(
+    test_upload_dir, monkeypatch, bad_value
+):
+    upload_res = client.post(
+        "/upload",
+        files={"file": ("CT_small.dcm", SAMPLE_DICOM.read_bytes(), "application/octet-stream")},
+    )
+    file_id = upload_res.json()["file_id"]
+
+    def mock_load_dicom(path):
+        image = np.full((64, 64), 100.0, dtype=np.float64)
+        image[10, 10] = bad_value
+        return image
+
+    monkeypatch.setattr("routes.analyze.load_dicom", mock_load_dicom)
+    mock_llm = MagicMock()
+    monkeypatch.setattr("routes.analyze.generate_report", mock_llm)
+
+    response = client.post(f"/analyze/{file_id}")
+    assert response.status_code == 422
+    assert response.json()["detail"]["code"] == "FUZZY_INFERENCE_ERROR"
+    mock_llm.assert_not_called()
