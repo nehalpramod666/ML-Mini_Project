@@ -21,7 +21,7 @@ router = APIRouter()
 SAFE_FILE_ID_REGEX = re.compile(r"^[a-zA-Z0-9_\-]+$")
 
 CONTRACT_ERROR_MESSAGES = {
-    "DISABLED_HIGH_CONTRAST_TRIGGER": "High-contrast defect trigger is currently disabled.",
+    "DISABLED_HIGH_CONTRAST_TRIGGER": "This image shows an exposure pattern the system cannot assess automatically.",
     "CONSISTENCY_ERROR": "Image quality assessment is internally inconsistent.",
     "UNDEFINED_SNR": "Signal-to-noise ratio could not be determined.",
     "INVALID_SCHEMA": "Quality assessment schema is invalid.",
