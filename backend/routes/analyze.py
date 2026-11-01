@@ -10,8 +10,9 @@ from fastapi import APIRouter, HTTPException
 
 from config import get_upload_dir
 from cv_fuzzy.dicom_loader import DicomLoadError, load_dicom
-from cv_fuzzy.fuzzy_engine import FuzzyInferenceError, analyze_image_fuzzy
-from cv_fuzzy.v2_contract import ContractV2Error, build_v2_payload
+from cv_fuzzy.fuzzy_engine import FuzzyInferenceError
+from cv_fuzzy.fuzzy_infer import fuzzy_infer
+from cv_fuzzy.v2_contract import ContractV2Error
 from ml.llm_engine import ContractError, ModelUnavailableError, generate_report
 
 logger = logging.getLogger(__name__)
@@ -52,9 +53,9 @@ def _execute_pipeline(file_path: Path) -> dict:
             },
         ) from exc
 
-    # 2. Fuzzy assessment
+    # 2. Fuzzy assessment and validated v2 payload (single M2 entry point)
     try:
-        m2_result = analyze_image_fuzzy(image)
+        assessment_payload = fuzzy_infer(image)
     except FuzzyInferenceError as exc:
         logger.error("Fuzzy inference error for %s: %s", file_path.name, exc)
         raise HTTPException(
@@ -64,19 +65,6 @@ def _execute_pipeline(file_path: Path) -> dict:
                 "message": "Image quality assessment could not be completed.",
             },
         ) from exc
-    except Exception as exc:
-        logger.error("Unexpected error in fuzzy analysis for %s: %s", file_path.name, exc, exc_info=True)
-        raise HTTPException(
-            status_code=422,
-            detail={
-                "code": "ASSESSMENT_FAILED",
-                "message": "Image quality assessment failed.",
-            },
-        ) from exc
-
-    # 3. Build validated v2 payload
-    try:
-        assessment_payload = build_v2_payload(m2_result, image)
     except ContractV2Error as exc:
         logger.error("Contract v2 error for %s: %s", file_path.name, exc)
         error_code = exc.code or "CONTRACT_V2_ERROR"
@@ -89,16 +77,21 @@ def _execute_pipeline(file_path: Path) -> dict:
             detail={"code": error_code, "message": safe_message},
         ) from exc
     except Exception as exc:
-        logger.error("Unexpected error constructing contract v2 payload for %s: %s", file_path.name, exc, exc_info=True)
+        logger.error(
+            "Unexpected error in image assessment for %s: %s",
+            file_path.name,
+            exc,
+            exc_info=True,
+        )
         raise HTTPException(
             status_code=422,
             detail={
-                "code": "CONSISTENCY_ERROR",
-                "message": "Image quality assessment is internally inconsistent.",
+                "code": "ASSESSMENT_FAILED",
+                "message": "Image quality assessment failed.",
             },
         ) from exc
 
-    # 4. LLM report generation
+    # 3. LLM report generation
     try:
         report_text = generate_report(assessment_payload)
     except ContractError as exc:
