@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { RenderingEngine, Enums, init as coreInit } from "@cornerstonejs/core";
 import { init as dicomImageLoaderInit } from "@cornerstonejs/dicom-image-loader";
 import { registerDefaultProviders } from "@cornerstonejs/metadata";
-const BASE_URL = "http://localhost:8000";
-
+import { API_BASE_URL as BASE_URL } from "../config";
 // Cornerstone must be initialised once per page load, not once per render.
 let initPromise = null;
 function initCornerstone() {

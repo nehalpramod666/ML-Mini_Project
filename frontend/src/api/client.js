@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000";
+import { API_BASE_URL as BASE_URL } from "../config";
 
 function extractErrorMessage(errorData, fallback) {
   if (!errorData || !errorData.detail) {
