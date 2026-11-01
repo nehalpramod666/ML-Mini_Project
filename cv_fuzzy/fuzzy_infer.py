@@ -1,7 +1,7 @@
-﻿"""Provisional M2 orchestration for generating a V2 image-quality payload.
+﻿"""M2 orchestration for generating a validated V2 image-quality payload.
 
-This module composes existing M2 components. Its public integration
-interface remains provisional until M1 and M3 confirm their requirements.
+This is the confirmed M2 entry point for grayscale NumPy images. It composes
+the existing fuzzy engine and V2 contract builder.
 """
 
 from __future__ import annotations
